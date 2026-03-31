@@ -33,7 +33,7 @@ export function CTA() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-[32px] sm:text-[40px] md:text-[52px] font-extrabold text-white leading-[1.1] tracking-[-0.02em]">
-              지금 무료로
+              지금 바로
               <br />
               시작하세요
             </h2>
@@ -43,7 +43,7 @@ export function CTA() {
 
             <div className="flex flex-col gap-4 mt-10">
               {[
-                '설치비·기기비 완전 무료',
+                '설치비·기기비 0원',
                 '약정 없이 언제든 해지',
                 '1~3일 내 세팅 완료',
                 '17개국어 자동 번역',
@@ -76,7 +76,7 @@ export function CTA() {
                 onSubmit={handleSubmit(onSubmit)}
                 className="p-8 md:p-10 rounded-2xl bg-white/[0.06] border border-white/[0.1] flex flex-col gap-5"
               >
-                <h3 className="text-[22px] font-extrabold text-white mb-1">무료 도입 신청</h3>
+                <h3 className="text-[22px] font-extrabold text-white mb-1">도입 신청</h3>
 
                 <div>
                   <label className="text-[14px] font-semibold text-white/50 mb-1.5 block">매장명 *</label>
@@ -129,7 +129,7 @@ export function CTA() {
                   type="submit"
                   className="group w-full flex items-center justify-center gap-2.5 h-14 bg-[#1A5DF7] text-white text-[17px] font-bold rounded-xl hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-200 ease-out mt-1"
                 >
-                  무료 도입 신청하기
+                  도입 신청하기
                   <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform duration-200" />
                 </button>
 

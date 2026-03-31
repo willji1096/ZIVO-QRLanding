@@ -5,7 +5,7 @@ import { Badge } from '@/components/Badge'
 const STEPS = [
   {
     num: '1',
-    title: '무료 신청',
+    title: '도입 신청',
     desc: '아래 신청 폼에서 매장명과 연락처만 입력하시면 됩니다. 별도 서류나 복잡한 절차 없이, 1~3 영업일 이내에 담당자가 직접 연락드려 승인을 도와드립니다.',
     detail: '필요 정보: 매장명, 대표자 연락처, 업종',
     time: '소요 시간: 1~3 영업일',
@@ -14,7 +14,7 @@ const STEPS = [
     num: '2',
     title: 'QR 스티커 수령 & 메뉴 등록',
     desc: '승인이 완료되면 QR 스티커를 배송해드립니다. 동시에 사장님이 한국어로 메뉴를 등록하시면, 17개 언어로 자동 번역이 시작됩니다.',
-    detail: 'QR 스티커 디자인·제작·배송 모두 무료',
+    detail: 'QR 스티커 디자인·제작·배송 포함',
     time: '소요 시간: 2~3일',
   },
   {
@@ -99,7 +99,7 @@ export function HowItWorks() {
             href="#cta"
             className="group inline-flex items-center justify-center gap-2.5 h-[60px] pl-10 pr-9 bg-[#1A5DF7] text-white text-[18px] font-bold rounded-xl hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-200 ease-out shadow-[0_4px_20px_rgba(26,93,247,0.35)]"
           >
-            지금 무료로 신청하기
+            지금 바로 신청하기
             <ArrowRight size={20} className="group-hover:translate-x-0.5 transition-transform duration-200" />
           </a>
         </motion.div>

@@ -63,7 +63,7 @@ export function Hero() {
               href="#cta"
               className="group inline-flex items-center justify-center gap-2.5 h-[60px] pl-10 pr-9 bg-[#1A5DF7] text-white text-[18px] font-bold rounded-xl hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-200 shadow-[0_4px_20px_rgba(26,93,247,0.4)]"
             >
-              무료 도입 신청
+              도입 신청하기
               <ArrowRight size={20} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
             <a
