@@ -44,9 +44,9 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group p-6 md:p-7 rounded-2xl bg-[#F8FAFC] border border-[#F1F5F9] hover:bg-white hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:border-[#E2E8F0] transition-all duration-200"
+              className="group p-6 md:p-7 rounded-2xl bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0_rgba(0,0,0,0.04)] hover:shadow-[0_0_0_1px_rgba(0,0,0,0.08),0_4px_12px_-2px_rgba(0,0,0,0.08),0_8px_24px_0_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-[box-shadow,transform] duration-200 ease-out"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#EFF6FF] flex items-center justify-center mb-4 group-hover:bg-[#1A5DF7] transition-colors duration-200">
+              <div className="w-11 h-11 rounded-xl bg-[#EFF6FF] flex items-center justify-center mb-4 group-hover:bg-[#1A5DF7] transition-[background-color] duration-200">
                 <feat.icon size={22} className="text-[#1A5DF7] group-hover:text-white transition-colors duration-200" />
               </div>
               <h3 className="text-[17px] font-bold text-[#0F172A] mb-2">{feat.title}</h3>

@@ -97,7 +97,7 @@ export function HowItWorks() {
         >
           <a
             href="#cta"
-            className="group inline-flex items-center justify-center gap-2.5 h-[60px] px-10 bg-[#1A5DF7] text-white text-[18px] font-bold rounded-xl hover:bg-[#1549D4] transition-all duration-200"
+            className="group inline-flex items-center justify-center gap-2.5 h-[60px] pl-10 pr-9 bg-[#1A5DF7] text-white text-[18px] font-bold rounded-xl hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-200 ease-out shadow-[0_4px_20px_rgba(26,93,247,0.35)]"
           >
             지금 무료로 신청하기
             <ArrowRight size={20} className="group-hover:translate-x-0.5 transition-transform duration-200" />

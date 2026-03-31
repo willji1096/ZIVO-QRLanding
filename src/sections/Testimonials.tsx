@@ -40,7 +40,7 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="break-inside-avoid mb-5 p-7 rounded-2xl border border-[#E2E8F0] bg-[#FAFAFA]"
+              className="break-inside-avoid mb-5 p-7 rounded-2xl bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_-1px_rgba(0,0,0,0.06),0_2px_4px_0_rgba(0,0,0,0.04)]"
             >
               <p className="text-[16px] text-[#334155] leading-[1.7] mb-5 font-medium">"{review.text}"</p>
               <span className="inline-block text-[14px] font-bold text-[#1A5DF7] bg-[#EFF6FF] px-3 py-1.5 rounded-lg mb-5">

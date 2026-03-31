@@ -39,7 +39,7 @@ export function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.04 }}
-              className="bg-white rounded-xl"
+              className="bg-white rounded-xl shadow-[0_0_0_1px_rgba(0,0,0,0.04),0_1px_2px_0_rgba(0,0,0,0.03)]"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}

@@ -49,7 +49,7 @@ export function Navbar() {
           ))}
           <a
             href="#cta"
-            className="h-9 px-5 inline-flex items-center text-[13px] font-semibold text-white bg-[#1A5DF7] rounded-lg hover:bg-[#1549D4] transition-colors"
+            className="h-9 pl-5 pr-4.5 inline-flex items-center text-[13px] font-semibold text-white bg-[#1A5DF7] rounded-lg hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-150 ease-out"
           >
             무료 도입 신청
           </a>

@@ -83,7 +83,7 @@ export function CTA() {
                   <input
                     {...register('storeName', { required: '매장명을 입력해주세요' })}
                     placeholder="예) 명동 불고기집"
-                    className="w-full h-12 px-4 bg-white/[0.06] border border-white/[0.1] rounded-xl text-[16px] text-white placeholder:text-white/25 focus:outline-none focus:border-[#1A5DF7] transition-colors"
+                    className="w-full h-12 px-4 bg-white/[0.06] border border-white/[0.1] rounded-xl text-[16px] text-white placeholder:text-white/25 focus:outline-none focus:border-[#1A5DF7] transition-[border-color] duration-150"
                   />
                   {errors.storeName && <span className="text-red-400 text-[13px] mt-1 block">{errors.storeName.message}</span>}
                 </div>
@@ -93,7 +93,7 @@ export function CTA() {
                   <input
                     {...register('contact', { required: '연락처를 입력해주세요' })}
                     placeholder="010-0000-0000"
-                    className="w-full h-12 px-4 bg-white/[0.06] border border-white/[0.1] rounded-xl text-[16px] text-white placeholder:text-white/25 focus:outline-none focus:border-[#1A5DF7] transition-colors"
+                    className="w-full h-12 px-4 bg-white/[0.06] border border-white/[0.1] rounded-xl text-[16px] text-white placeholder:text-white/25 focus:outline-none focus:border-[#1A5DF7] transition-[border-color] duration-150"
                   />
                   {errors.contact && <span className="text-red-400 text-[13px] mt-1 block">{errors.contact.message}</span>}
                 </div>
@@ -127,7 +127,7 @@ export function CTA() {
 
                 <button
                   type="submit"
-                  className="group w-full flex items-center justify-center gap-2.5 h-14 bg-[#1A5DF7] text-white text-[17px] font-bold rounded-xl hover:bg-[#1549D4] transition-colors mt-1"
+                  className="group w-full flex items-center justify-center gap-2.5 h-14 bg-[#1A5DF7] text-white text-[17px] font-bold rounded-xl hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-200 ease-out mt-1"
                 >
                   무료 도입 신청하기
                   <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform duration-200" />
