@@ -18,8 +18,8 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section id="features" className="py-24 sm:py-32 md:py-40 bg-white">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <section id="features" className="py-16 sm:py-20 md:py-24 bg-white">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,10 +28,10 @@ export function Features() {
           className="mb-14 md:mb-20"
         >
           <Badge>주요 기능</Badge>
-          <h2 className="mt-5 text-[32px] sm:text-[40px] md:text-[48px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
+          <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
             매장 운영에 필요한 모든 것
           </h2>
-          <p className="mt-4 text-[18px] md:text-[20px] text-[#64748B] font-medium">
+          <p className="mt-4 text-[16px] md:text-[18px] text-[#64748B] font-medium">
             QR 주문부터 매출 분석까지. 하나의 플랫폼.
           </p>
         </motion.div>

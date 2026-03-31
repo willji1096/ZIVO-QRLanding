@@ -16,7 +16,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section id="faq" className="py-24 sm:py-32 md:py-40 bg-[#F8FAFC]">
+    <section id="faq" className="py-16 sm:py-20 md:py-24 bg-[#F8FAFC]">
       <div className="max-w-[800px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -26,7 +26,7 @@ export function FAQ() {
           className="text-center mb-14 md:mb-20"
         >
           <Badge>자주 묻는 질문</Badge>
-          <h2 className="mt-5 text-[32px] sm:text-[40px] md:text-[48px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
+          <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
             궁금한 점이 있으신가요?
           </h2>
         </motion.div>

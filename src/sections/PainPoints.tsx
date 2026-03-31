@@ -3,8 +3,8 @@ import { Badge } from '@/components/Badge'
 
 export function PainPoints() {
   return (
-    <section className="py-24 sm:py-32 md:py-40 bg-white">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <section className="py-16 sm:py-20 md:py-24 bg-white">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -13,7 +13,7 @@ export function PainPoints() {
           className="mb-14 md:mb-20"
         >
           <Badge>사장님의 고민</Badge>
-          <h2 className="mt-5 text-[32px] sm:text-[40px] md:text-[48px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
+          <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
             외국인 손님 올 때마다
             <br />
             이런 일 반복되지 않으셨나요?

@@ -12,8 +12,8 @@ const REVIEWS = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 sm:py-32 md:py-40 bg-white">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <section id="testimonials" className="py-16 sm:py-20 md:py-24 bg-white">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,10 +22,10 @@ export function Testimonials() {
           className="mb-14 md:mb-20"
         >
           <Badge>도입 후기</Badge>
-          <h2 className="mt-5 text-[32px] sm:text-[40px] md:text-[48px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
+          <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
             사장님들의 실제 후기
           </h2>
-          <p className="mt-4 text-[18px] md:text-[20px] text-[#64748B] font-medium">
+          <p className="mt-4 text-[16px] md:text-[18px] text-[#64748B] font-medium">
             ZIVO QR을 먼저 도입한 사장님들의 이야기입니다.
           </p>
         </motion.div>

@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className="bg-[#0A0F1C] border-t border-white/[0.04] py-10">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row justify-between gap-6">
           <div>
             <span className="text-[16px] font-extrabold text-white tracking-[-0.01em]">

@@ -72,8 +72,8 @@ function SolutionScreen({ type }: { type: string }) {
 
 export function Solution() {
   return (
-    <section id="solution" className="py-24 sm:py-32 md:py-40 bg-[#F8FAFC]">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <section id="solution" className="py-16 sm:py-20 md:py-24 bg-[#F8FAFC]">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,10 +82,10 @@ export function Solution() {
           className="mb-16 md:mb-24"
         >
           <Badge>ZIVO QR 솔루션</Badge>
-          <h2 className="mt-5 text-[32px] sm:text-[40px] md:text-[48px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
+          <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
             ZIVO QR이 해결합니다
           </h2>
-          <p className="mt-4 text-[18px] md:text-[20px] text-[#64748B] font-medium">
+          <p className="mt-4 text-[16px] md:text-[18px] text-[#64748B] font-medium">
             설치비 0원, 별도 기기 없이 시작하세요.
           </p>
         </motion.div>

@@ -29,8 +29,8 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 sm:py-32 md:py-40 bg-[#0F172A]">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <section id="how-it-works" className="py-16 sm:py-20 md:py-24 bg-[#0F172A]">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-[1fr_auto] gap-16 lg:gap-20">
           {/* Left */}
           <div>
@@ -42,10 +42,10 @@ export function HowItWorks() {
               className="mb-14 md:mb-20"
             >
               <Badge>도입 과정</Badge>
-              <h2 className="mt-5 text-[32px] sm:text-[40px] md:text-[48px] font-extrabold text-white leading-[1.1] tracking-[-0.02em]">
+              <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-white leading-[1.1] tracking-[-0.02em]">
                 3단계면 충분합니다
               </h2>
-              <p className="mt-4 text-[18px] md:text-[20px] text-white/40 font-medium">
+              <p className="mt-4 text-[16px] md:text-[18px] text-white/40 font-medium">
                 복잡한 설치 과정 없이, 신청부터 운영까지 일주일이면 됩니다.
               </p>
             </motion.div>
@@ -92,7 +92,7 @@ export function HowItWorks() {
             >
               <a
                 href="#cta"
-                className="group inline-flex items-center justify-center gap-2.5 h-[60px] pl-10 pr-9 bg-[#1A5DF7] text-white text-[18px] font-bold rounded-xl hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-200 ease-out shadow-[0_4px_20px_rgba(26,93,247,0.35)]"
+                className="group inline-flex items-center justify-center gap-2.5 h-[56px] pl-10 pr-9 bg-[#1A5DF7] text-white text-[18px] font-bold rounded-xl hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-200 ease-out shadow-[0_4px_20px_rgba(26,93,247,0.35)]"
               >
                 지금 바로 신청하기
                 <ArrowRight size={20} className="group-hover:translate-x-0.5 transition-transform duration-200" />

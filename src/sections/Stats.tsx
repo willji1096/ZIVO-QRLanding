@@ -30,7 +30,7 @@ const STATS = [
 export function Stats() {
   return (
     <section className="py-20 sm:py-24 bg-[#1A5DF7]">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
           {STATS.map((stat, i) => (
             <motion.div

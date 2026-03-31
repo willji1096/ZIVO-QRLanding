@@ -26,7 +26,7 @@ export function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[56px] md:h-[64px]">
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[56px] md:h-[64px]">
         <a href="#" className="flex items-center">
           <span className={`text-[18px] font-extrabold tracking-[-0.01em] transition-colors duration-300 ${
             scrolled ? 'text-[#0F172A]' : 'text-white'

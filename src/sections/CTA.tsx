@@ -20,10 +20,10 @@ export function CTA() {
   }
 
   return (
-    <section id="cta" className="py-24 sm:py-32 md:py-40 bg-[#0F172A] relative overflow-hidden">
+    <section id="cta" className="py-16 sm:py-20 md:py-24 bg-[#0F172A] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(26,93,247,0.15)_0%,_transparent_60%)]" />
 
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
+      <div className="relative max-w-[1024px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left */}
           <motion.div
@@ -37,7 +37,7 @@ export function CTA() {
               <br />
               시작하세요
             </h2>
-            <p className="mt-5 text-[18px] md:text-[20px] text-white/50 leading-[1.6] max-w-md font-medium">
+            <p className="mt-5 text-[16px] md:text-[18px] text-white/50 leading-[1.6] max-w-md font-medium">
               망설이는 지금 이 순간에도, 경쟁 매장은 외국인 관광객의 주문을 받고 있습니다.
             </p>
 
