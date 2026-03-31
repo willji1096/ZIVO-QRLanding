@@ -37,19 +37,13 @@ const SOLUTIONS = [
 
 function DualPhone({ main, sub }: { main: React.ReactNode; sub: React.ReactNode }) {
   return (
-    <div className="flex justify-center">
-      <div className="relative">
-        {/* 메인 폰 — 앞 */}
-        <PhoneMockup className="relative z-10">
-          {main}
-        </PhoneMockup>
-        {/* 서브 폰 — 바로 뒤에 겹침 */}
-        <div className="absolute left-[140px] sm:left-[160px] top-4 z-0 hidden sm:block">
-          <PhoneMockup className="opacity-70">
-            {sub}
-          </PhoneMockup>
-        </div>
-      </div>
+    <div className="flex justify-center gap-5">
+      <PhoneMockup>
+        {main}
+      </PhoneMockup>
+      <PhoneMockup className="hidden sm:block">
+        {sub}
+      </PhoneMockup>
     </div>
   )
 }
