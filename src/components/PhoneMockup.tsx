@@ -16,9 +16,6 @@ export function PhoneMockup({ children, className = '', size = 'default' }: Phon
           <div className="flex-1 overflow-hidden">
             {children}
           </div>
-          <div className="py-2 flex justify-center flex-shrink-0">
-            <div className="w-[100px] h-[4px] bg-[#0F172A] rounded-full" />
-          </div>
         </div>
       </div>
     </div>
