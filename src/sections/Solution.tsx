@@ -5,6 +5,7 @@ import { PhoneMockup } from '@/components/PhoneMockup'
 import { MenuListScreen } from '@/components/mockups/MenuListScreen'
 import { OrderCompleteScreen } from '@/components/mockups/OrderCompleteScreen'
 import { DashboardScreen } from '@/components/mockups/DashboardScreen'
+import { OrderNotificationScreen } from '@/components/mockups/OrderNotificationScreen'
 
 const SOLUTIONS = [
   {
@@ -33,30 +34,41 @@ const SOLUTIONS = [
   },
 ]
 
+function DualPhone({ main, sub }: { main: React.ReactNode; sub: React.ReactNode }) {
+  return (
+    <div className="flex items-end justify-center gap-3 sm:gap-5">
+      <PhoneMockup size="lg" className="relative z-10">
+        {main}
+      </PhoneMockup>
+      <PhoneMockup className="hidden sm:block -mb-4 opacity-85">
+        {sub}
+      </PhoneMockup>
+    </div>
+  )
+}
+
 function SolutionScreen({ type }: { type: string }) {
   switch (type) {
     case 'multilang':
       return (
-        <div className="flex items-end gap-3 sm:gap-4">
-          <PhoneMockup className="relative z-10">
-            <MenuListScreen lang="en" />
-          </PhoneMockup>
-          <PhoneMockup className="scale-[0.9] origin-bottom opacity-70 hidden sm:block">
-            <MenuListScreen lang="ja" />
-          </PhoneMockup>
-        </div>
+        <DualPhone
+          main={<MenuListScreen lang="en" />}
+          sub={<MenuListScreen lang="ja" />}
+        />
       )
     case 'order':
       return (
-        <PhoneMockup>
-          <OrderCompleteScreen />
-        </PhoneMockup>
+        <DualPhone
+          main={<MenuListScreen lang="ko" />}
+          sub={<OrderCompleteScreen />}
+        />
       )
     case 'dashboard':
       return (
-        <PhoneMockup>
-          <DashboardScreen />
-        </PhoneMockup>
+        <DualPhone
+          main={<DashboardScreen />}
+          sub={<OrderNotificationScreen />}
+        />
       )
     default:
       return null
@@ -91,8 +103,9 @@ export function Solution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+              className="grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-center"
             >
+              {/* 텍스트 — 5fr */}
               <div className={`flex flex-col gap-5 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[14px] font-bold w-fit ${sol.badgeColor}`}>
                   {sol.badge}
@@ -111,7 +124,8 @@ export function Solution() {
                 </ul>
               </div>
 
-              <div className={`flex justify-center ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+              {/* 목업 — 7fr */}
+              <div className={`${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                 <SolutionScreen type={sol.screen} />
               </div>
             </motion.div>
