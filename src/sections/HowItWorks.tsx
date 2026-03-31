@@ -26,70 +26,89 @@ const STEPS = [
   },
 ]
 
+/* QR 코드 패턴 — 고정값 (렌더 때마다 바뀌지 않도록) */
+const QR_PATTERN = [
+  1,1,1,0,1,1,1,
+  1,0,1,1,1,0,1,
+  1,1,1,0,1,1,1,
+  0,1,0,1,0,1,0,
+  1,1,1,0,1,0,1,
+  1,0,1,1,0,1,1,
+  1,1,1,0,1,1,1,
+]
+
+function QRCard({ className, style, children }: { className?: string; style?: React.CSSProperties; children?: React.ReactNode }) {
+  return (
+    <div
+      className={`w-[220px] h-[310px] rounded-3xl ${className}`}
+      style={{ transformStyle: 'preserve-3d', ...style }}
+    >
+      {children}
+    </div>
+  )
+}
+
 function QRCardStack() {
   return (
-    <div className="relative w-[280px] h-[360px] hidden lg:block" style={{ perspective: '800px' }}>
-      {/* 뒤 카드 */}
+    <div className="relative w-[320px] h-[420px] hidden lg:block" style={{ perspective: '1200px' }}>
+      {/* 뒤 카드 3 */}
       <motion.div
-        initial={{ opacity: 0, rotateY: -15 }}
-        whileInView={{ opacity: 0.4, rotateY: -8 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="absolute top-6 left-6 w-[220px] h-[300px] rounded-2xl bg-gradient-to-br from-[#1E3A8A] to-[#1A5DF7] shadow-[0_8px_32px_rgba(26,93,247,0.2)]"
-        style={{ transformStyle: 'preserve-3d' }}
-      />
-
-      {/* 중간 카드 */}
-      <motion.div
-        initial={{ opacity: 0, rotateY: -10 }}
-        whileInView={{ opacity: 0.7, rotateY: -4 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.15 }}
-        className="absolute top-3 left-3 w-[220px] h-[300px] rounded-2xl bg-gradient-to-br from-[#1A5DF7] to-[#3B82F6] shadow-[0_8px_32px_rgba(26,93,247,0.25)]"
-        style={{ transformStyle: 'preserve-3d' }}
-      />
-
-      {/* 앞 카드 — QR 스티커 */}
-      <motion.div
-        initial={{ opacity: 0, rotateY: -5 }}
-        whileInView={{ opacity: 1, rotateY: 2 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="absolute top-0 left-0 w-[220px] h-[300px] rounded-2xl bg-white shadow-[0_8px_40px_rgba(0,0,0,0.15)] p-6 flex flex-col items-center justify-between"
-        style={{ transformStyle: 'preserve-3d' }}
+        transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        className="absolute"
+        style={{ top: '60px', left: '70px', transform: 'rotateX(12deg) rotateY(-18deg) rotateZ(3deg)' }}
       >
-        {/* 상단 */}
-        <div className="text-center">
-          <div className="w-8 h-8 rounded-lg bg-[#1A5DF7] flex items-center justify-center mx-auto mb-2">
-            <span className="text-white text-[11px] font-extrabold">Z</span>
-          </div>
-          <span className="text-[11px] font-bold text-[#0F172A]">ZIVO QR Order</span>
-          <span className="text-[9px] text-[#94A3B8] block">The Timber House</span>
-        </div>
+        <QRCard className="bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] shadow-[0_20px_60px_rgba(26,93,247,0.15)] opacity-30" />
+      </motion.div>
 
-        {/* QR 코드 */}
-        <div className="w-[120px] h-[120px] bg-[#0F172A] rounded-xl p-2.5 my-3">
-          <div className="w-full h-full grid grid-cols-7 grid-rows-7 gap-[2px]">
-            {Array.from({ length: 49 }).map((_, i) => {
-              const row = Math.floor(i / 7)
-              const col = i % 7
-              const isCorner = (row < 3 && col < 3) || (row < 3 && col > 3) || (row > 3 && col < 3)
-              const isFilled = isCorner || Math.random() > 0.45
-              return (
-                <div
-                  key={i}
-                  className={`rounded-[1px] ${isFilled ? 'bg-white' : 'bg-white/20'}`}
-                />
-              )
-            })}
-          </div>
-        </div>
+      {/* 중간 카드 2 */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        className="absolute"
+        style={{ top: '30px', left: '35px', transform: 'rotateX(12deg) rotateY(-18deg) rotateZ(3deg)' }}
+      >
+        <QRCard className="bg-gradient-to-br from-[#1A5DF7] to-[#60A5FA] shadow-[0_20px_60px_rgba(26,93,247,0.2)] opacity-60" />
+      </motion.div>
 
-        {/* 하단 */}
-        <div className="text-center">
-          <span className="text-[18px] font-extrabold text-[#0F172A] block">T17</span>
-          <span className="text-[10px] text-[#94A3B8]">QR을 스캔하여 주문하세요</span>
-        </div>
+      {/* 앞 카드 1 — QR 스티커 */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+        className="absolute"
+        style={{ top: '0px', left: '0px', transform: 'rotateX(12deg) rotateY(-18deg) rotateZ(3deg)' }}
+      >
+        <QRCard className="bg-white shadow-[0_4px_8px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.12),0_32px_80px_rgba(0,0,0,0.08)] p-6 flex flex-col items-center justify-between">
+          {/* 상단 */}
+          <div className="text-center">
+            <div className="w-9 h-9 rounded-xl bg-[#1A5DF7] flex items-center justify-center mx-auto mb-2">
+              <span className="text-white text-[12px] font-extrabold">Z</span>
+            </div>
+            <span className="text-[12px] font-bold text-[#0F172A]">ZIVO QR Order</span>
+            <span className="text-[10px] text-[#94A3B8] block mt-0.5">The Timber House</span>
+          </div>
+
+          {/* QR 코드 */}
+          <div className="w-[130px] h-[130px] bg-[#0F172A] rounded-2xl p-3 my-4">
+            <div className="w-full h-full grid grid-cols-7 grid-rows-7 gap-[2px]">
+              {QR_PATTERN.map((filled, i) => (
+                <div key={i} className={`rounded-[1px] ${filled ? 'bg-white' : 'bg-white/15'}`} />
+              ))}
+            </div>
+          </div>
+
+          {/* 하단 */}
+          <div className="text-center">
+            <span className="text-[22px] font-extrabold text-[#0F172A] block tracking-wide">T17</span>
+            <span className="text-[10px] text-[#94A3B8] mt-0.5 block">QR을 스캔하여 주문하세요</span>
+          </div>
+        </QRCard>
       </motion.div>
     </div>
   )
