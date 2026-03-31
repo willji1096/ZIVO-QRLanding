@@ -1,0 +1,850 @@
+{
+  "version": 1,
+  "skills": {
+    "Bun Bundler": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "c5cc9aef8069e07db1c9dca3b0f99add19c187e254205d0b475a9b89caaf1a9c"
+    },
+    "Bun Cloudflare Workers": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "21d278b0f3f6e00e11f619c986f159b85c34212ffe8535cf411e01ae0796f39e"
+    },
+    "Bun Docker": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "2bdd3e3a5602fe0320ea0204e73fbcc964f690670cc685acf4ca6e1f8c9779b7"
+    },
+    "Bun Drizzle Integration": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "6761a087abc22f119be7fdb3c6c28c56aaa01cc3d7339dd67ff3aff121650b46"
+    },
+    "Bun FFI": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "2b2e16f8ac5407bb27b2bf9b67d48ed0d83872207f0256a23037e8a76fd9ee84"
+    },
+    "Bun HTTP Server": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "c10d2d654b141908d29cb232c425f901120bb6552adcd7314fc63e6680e3f6fe"
+    },
+    "Bun Hono Integration": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "a976867eed7127990796049315edcdfd56a0e50bc774f03653be8c15fff02d89"
+    },
+    "Bun Hot Reloading": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "e56b7fb1d77f0ef2a0d2a7772213e20e0c79a7a0a9305a8de8a18ca9aff153a2"
+    },
+    "Bun Jest Migration": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "f41fa17c7fba3892d01c483dfb92a90f204297606f06f11a098f80153b486c61"
+    },
+    "Bun Macros": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "77c6b15c2eddea4a1505d37c3a4ad4ceb5aa637857400e192ec0ea5816f8e110"
+    },
+    "Bun Next.js": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "27373d0b866ff1d38b7f35481be35ffffa521d86fcd2822d98ad0d7f9d7d106c"
+    },
+    "Bun Nuxt": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "e78cf595d58e0f121ea84a4192b3ec21aab2fb53f2878d92d3aee5f763ef7f56"
+    },
+    "Bun Package Manager": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "8db05a1eb2333f82c2082738489712329ebd5b060a9acddabe0a133cabdb987c"
+    },
+    "Bun React SSR": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "ec045f7a6158bdacb4b6362b6bec6258a70eefdd11a238ca8260937a95d5050d"
+    },
+    "Bun Redis": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "614e046239f4a67e7bbf2aaa4646acfe5d1678e0b1aa3e2afe5a3d5a0d579611"
+    },
+    "Bun Runtime": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "79c1b53f57ecd41e18c4a2e2f459054685d02c3e6b7a538a8c547652f9dcd05b"
+    },
+    "Bun SQLite": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "8aee71ab2c086f4c721baa25e16e417fd46d1fb619b70031bab7749a5cf57657"
+    },
+    "Bun Shell": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "bcdc37ed987795f49b1b3f9f7d51b856fc7ffede8d8fec5c5bc689543a87088e"
+    },
+    "Bun SvelteKit": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "8f3da3cd2f23aeb6edb5942ccb6da3d2b14d79b50af6db887b4b671b655eaca3"
+    },
+    "Bun TanStack Start": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "e9d50061a5da9cb626e8c5c4855b27f4ef45b9f35f558b8e43fb1c79b3272a33"
+    },
+    "Bun Test Basics": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "26b7687d88fe72547fad405b8c5ab637b989a0396fb3dfb90831d2221a40e050"
+    },
+    "Bun Test Coverage": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "fcf383c5eb2c9539817a9ede474baadeaeb89753a8426b43b805b85c1009a7c9"
+    },
+    "Bun Test Mocking": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "9e475e4d4ffe3d3fe137e045208eaced6c4160ca62e8e61a7881d5237f8fe7af"
+    },
+    "Bun WebSocket Server": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "b79ba31a832d25467d0634ff498ba5c802b654e9f90962803d4d6a29b0205bf4"
+    },
+    "Bun Workers": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "2743e68c1994ade6b027f4cb6a1354753a16fc642627b7755f785c19f7164139"
+    },
+    "Nuxt Studio": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "7c87010374786ac417726744a8d723307ab35ccfdf65cd1f2f6c50feefded178"
+    },
+    "access-control-rbac": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "be1e1d021ab58daa7764f0f22984f44708f60782dcecff3bf2251646349323d8"
+    },
+    "aceternity-ui": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "ec58b85f3668dbfda1b279c7399f85d2c05f0db4474e4ce4de629a4823f651bf"
+    },
+    "adapt": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "fb7cca7602be381b7b486e731fdcd480335cbb9b925e1911276f5bb9352c6b2f"
+    },
+    "animate": {
+      "source": "delphi-ai/animate-skill",
+      "sourceType": "github",
+      "computedHash": "ffe5d0020ae97e7af2eeab79a3cdb2d13da004cc998dff6817b071308923b71f"
+    },
+    "api-authentication": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "f606790afd53a442a2f701748b27093deb3e0e1a5c7aa5a1a7978d7c7d87fb7a"
+    },
+    "api-changelog-versioning": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d16c2918a24c3b21a02bb542f794373bbc6ac92286cfaee2462b2b64cdfb4c10"
+    },
+    "api-contract-testing": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "2bcda1fb86bc2b733ee2c44461cd4c5a958a37b31b5fb33f06e83d226d23b5dd"
+    },
+    "api-design-principles": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "61043d19580d95764b8a8347241d3e47a9c41e0da611e5cd5bac27e377ae30e4"
+    },
+    "api-error-handling": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "dc82c03aa59f51525cb26c12514a165a26f6c6d68c68a7c3014a6a555d4a4655"
+    },
+    "api-filtering-sorting": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "032d37166ed7c9343791455b86491b95f26e383b7aa4479158ea5ea26ea5b122"
+    },
+    "api-gateway-configuration": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "c19ac1936dcead547c9226cb1bf6ca9fa3905d92150fc2f90440e8f562c8f769"
+    },
+    "api-pagination": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "367229e3423ea7fe557045640aeeb04b16813d007d86444d2a1ff537e86eabe7"
+    },
+    "api-rate-limiting": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "69e54ee86fed194bdc942d72bd2c39415a41bf78fe504d47f1143d7c0b415cc2"
+    },
+    "api-reference-documentation": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "ee948058e9f1f06a29f5367d1b81bbe52c1b24f43cac9f9e45b087a679613bb2"
+    },
+    "api-response-optimization": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "8480f7b0698bad1d674970476c5577192fc2ebf7d6692f6e7136a5f50f5813ad"
+    },
+    "api-security-hardening": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "ddfc46495c098199afed06b85cca20092912e7b29a095cd7f989e3f0dc2ff471"
+    },
+    "api-testing": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "cf2261d249a0d5a1ee44395d7714007420f379dc9378ced87fec3a84f1b5c5d2"
+    },
+    "api-versioning-strategy": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "75f1e225fc261ef6c376b78ef89d2bf7f3967a8b3da2f973b980ab1a17f0cde8"
+    },
+    "app-store-deployment": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "ab5cac7082c98a177b2624f9811159fe6de24c9daa584121d221166c26e2289d"
+    },
+    "architecture-patterns": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "84d959fabf294f77a3cb87f499fb36b86229a81e23cf6b148de3194510d4cef2"
+    },
+    "arrange": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "698fb952e9ef0d2551a5c3421ef61e084934420e0d8371a02efb4f76f21049e8"
+    },
+    "audit": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "eb9109e542194f8711cffce23095ef5da2deb4ed0b23f59c07e912e3931f1e17"
+    },
+    "better-auth": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "dbf750eb5f48f712c2a5c01473ccbb23b5d19c2d4cac932470ae8e333e733e5c"
+    },
+    "bolder": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "4b03286f1dc45da3e1a76a71c0c62729b4887c814dff3084345889cb4780a3a2"
+    },
+    "chrome-devtools": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "17f095c9e2d44105b304e1e6ff9a18ad8e70df27b1885e4dddf7791171d6c18f"
+    },
+    "clarify": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "1138379fb9f10b911094fb57b5607de8efbd77d2467fba4981ccc1c155457c6f"
+    },
+    "claude-code-bash-patterns": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "582bb832e0516ce0fc1c77cfe378a11a6c33ed67b59672a705ad09def494659c"
+    },
+    "claude-hook-writer": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "cfe509f86b008961647d6ce61c3cc3b595a77448cf5647e3177796cc91a34d52"
+    },
+    "cloudflare-agents": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "689d13edaaf4bfa9e49e429f7663b35130f55c6fa86d2850ef5540d7639330ca"
+    },
+    "cloudflare-d1": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "ea4928fac6ee6417c5f90270f0d08885f7bbfc8e1c51b6dbeea610fcf9e63172"
+    },
+    "cloudflare-manager": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "b8f09b973d13fc77e0cde71f88700b2f078d9375d388029631f9ea941cdba4a4"
+    },
+    "cloudflare-mcp-server": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "303b5fb2fee12840f1ecd60ccc57dfffa2e56cbd4c1bae2f2427505bc370a38f"
+    },
+    "code-review": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "40caf376f97b2f18b6b794881de46d52856ae709ac14ef4431454b23261214d4"
+    },
+    "colorize": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "6e292a0ba428d339615e025cab1f2692b2e6267ba247574a00545b1dac1acc5a"
+    },
+    "critique": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "59d3facaee0d7c969f23e938c35239183d3fdd9befff526908585e55afa3a9dd"
+    },
+    "csrf-protection": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "8b20d60ecd523b86e13afdb98092bde8abe17dbb4b5dafe1b639050731e40ed0"
+    },
+    "database-schema-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "c6610fe36f64adaf22a24eee2d9f0f12ba4f5424233da816890a1dfe0ba32c33"
+    },
+    "database-sharding": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "5c8ec3416f3e6e51276365bd2e5eecfc7b3fa57b2b6ac63ebb97e5562d83e468"
+    },
+    "defense-in-depth-validation": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "031a7d1f8f4b0a5c445913763c9d6acad8b9bd7e3a63c5c134d9042ac483b89e"
+    },
+    "delight": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "80127e9c695f768f5df70b9f62ad51cdfb3b4892791c4d901214b08f3be8d37e"
+    },
+    "dependency-upgrade": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "5ad733c10a4ae5e3fca0bd3a85bce4493b02c04dd75c2117b0ff7f4bd9b1258c"
+    },
+    "design-system-creation": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "7b42a442eeddd4afbeb5378d4d4078313440640ac4c3f33bf2ce094f70bc8d16"
+    },
+    "distill": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "ce6fbd844488a326208c1302c73b2865fa4fb20e447b6a06c038315444d6e0c5"
+    },
+    "drizzle-orm-d1": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "da3b52f0eaa1bfb1b9cc2215d9dbbdd3b32beef3f35ce41b87781d42b333f480"
+    },
+    "emil-design-eng": {
+      "source": "emilkowalski/skill",
+      "sourceType": "github",
+      "computedHash": "8bdf9e4e6de7a4969147bf4828a4ad2c5aacd9fba4b690b250a85e0467ca387d"
+    },
+    "extract": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "1bbe30b5be73a86971f6bccb37daae84aaafceaa6d23429d6a3a0442378ac4ec"
+    },
+    "frontend-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d8ca7e019da4356acf3cb29d05ac5579a0bf3c92f225c76ebe7cc00dee496588"
+    },
+    "google-gemini-file-search": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "b47dd99f18be8b46635a6759862435c78c1bea40f208c26311979e0044100dea"
+    },
+    "graphql-implementation": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "1ca5ee9c4253ddc23370cf19360e1d93244973a1edbcd97e4a2760314bf332c4"
+    },
+    "harden": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "f8ce420b3c78b90707704122264da76514c793ac0e12fb9540ace68d257c231c"
+    },
+    "health-check-endpoints": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "fb9d977a09368aec6f535486f648c06e66da334df901d98da4acc597bb8a39f7"
+    },
+    "idempotency-handling": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "fd19fd8f3e6f1a106973c003b5b1c589128c0fac853a3d764c779b2c497ce852"
+    },
+    "image-optimization": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "9d87722ea2451ca31d580526f9d3beb63515c7a5f946d6f2d96be48b7d49fbdf"
+    },
+    "inspira-ui": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "c686c38df48969fafd997073213939607ad88236366ce09f85061993b04a9f52"
+    },
+    "interaction-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "4da7b76d1291a5d0e1dbc33795335f52fb5683853c56c82c82fb6ad1da91b1bc"
+    },
+    "internationalization-i18n": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "a7435d52aec4e26b813f797271c6f7b1efe0f9dffbb6e0d1c934894ffa2c1905"
+    },
+    "jest-generator": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "30a44e7ae4751a3529d7fca6aab128d39cc9a6120d628c2d3f4b79a855b8b38b"
+    },
+    "kpi-dashboard-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "2e74718f98cd5d738142eb4f11ee6442a430b7b3d76563602928cd0c54ce4f57"
+    },
+    "logging-best-practices": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "8fe2cad3a6fda775a09f9d9ad27b626ad01fd60bb383d9e6cb2bec36ef95aed4"
+    },
+    "make-interfaces-feel-better": {
+      "source": "jakubkrehel/make-interfaces-feel-better",
+      "sourceType": "github",
+      "computedHash": "41c2416e08bc9ec3c696585d31bd1243481a7a81615b810b1b8a32aded9360b5"
+    },
+    "maz-ui": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "4e5a1324db542fd1b779bd64977d8a3e803ce168f5c27a1b0d7c9e66dcad86c5"
+    },
+    "mcp-management": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d48e7f8226ff9d786abed80874630f39f13c9a6f9fce33598fdba8afe80cf69b"
+    },
+    "microservices-patterns": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "fec9f8ee395984f6b5f9b247f61a270e40654532a43ef9b38207f422b89fdbb8"
+    },
+    "ml-model-training": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "672cb6e4ee50fde879b899c9565b3c7edafd4eb806de075743780cd97960bd21"
+    },
+    "ml-pipeline-automation": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "1726ce538b42af95b40daf9d5a98057bd66004487b6597ee3319707220e13551"
+    },
+    "mobile-app-debugging": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "bb74312f06c06b4610817753f6905e271abea81aacb5209994eec290f3cb3ac4"
+    },
+    "mobile-app-testing": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d734d334be9c3b50318dcee071fd3d9bebc1b8cd7cd84e96b06eb5251c153187"
+    },
+    "mobile-first-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "a5af4132093bf5724a397ae295a1b86fc104532c2fc5b1f336df2ff9fec69266"
+    },
+    "mobile-offline-support": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d7020e680845c8ed4d1914ec031b9533b739a580ba519d327008e106ddc931b4"
+    },
+    "model-deployment": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "48576874d5ced694687bfc473cbef0ec35ee0a677c91c91947b8ef8690d8c26e"
+    },
+    "motion": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "7a873e2ef2571b0d05427208aeb456072652186d8dc96e5483f76a06f6707b3d"
+    },
+    "multi-ai-consultant": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "ec370f4bd282e48838ff2da8fec531a39586bfca33a96067f78eb27032262789"
+    },
+    "mutation-testing": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "f0a476424a9815651b6d967a6229d6483cd186e16c97c1d26f21260060ec9efb"
+    },
+    "nano-banana-prompts": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "523f18428bc0b74c295f3d5a86caea33a14164a22ba32c306cfd5524398cfca2"
+    },
+    "neon-vercel-postgres": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "90993adb9af85e53359d292c5aec2ac50fce9b21abcfa0bcd5f803018694e0d3"
+    },
+    "normalize": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "281b7f9e590e252a6aec3f5f83c5ca548c91e8bccb3fd6eee4cc7d5be0becb4d"
+    },
+    "nuxt-core": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d4f4d350990f286ff8ea735b7de1deceb0c09932101c7abe33bd8c9e72b9d888"
+    },
+    "nuxt-data": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "2080089c6d325172d391eec267f1398b4754cbe2f5645ecabbd8092908ab3794"
+    },
+    "nuxt-production": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "b64c781582e7cc6bcab7294476bbadc956e3d17aee1ce7a56c48a77625ff60be"
+    },
+    "nuxt-seo": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "64c431177e6f02014e3bf75c27a81bb8d31b56dda0f425bafdd079bfd2006bdd"
+    },
+    "nuxt-server": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "e79e99aec895aa9dc8fcee7b15731c103f6f1f7eaa7ab15cefbd9b4fbe5f5a5b"
+    },
+    "nuxt-ui-v4": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "6c5b9eaf6d53be9b552c60d45b8b9504d99de0041588412ae06c6f8ba0ebe0b2"
+    },
+    "oauth-implementation": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "38b80244fd65c04314e74cdbb0fbe255f1534a6a487e43c3f6f8a76df853d43c"
+    },
+    "onboard": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "1cbedf70f906150b1b8bb70b61393eaf67e2e1311e1b5e43bde3e47411bcaa2b"
+    },
+    "optimize": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "f7adc2a2e540a590978b567d82985062bfada83385f5ad5d50b13a127cdc96d6"
+    },
+    "overdrive": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "3b940d458ef13afcb93ccb51ff430510aca4a9733d68fbdc335927a2636a091d"
+    },
+    "payment-gateway-integration": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "36f7f71e9f8ebddef8a77a6289c5a8c8f4440c1b95da3242ef1d660cae281eab"
+    },
+    "plan-interview": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "fbc5a313de1e425736ea3679ac0bb8810092cce45fea29671b14bea0622eccfd"
+    },
+    "playwright": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "073a6b405e6050d945c1b579fab087507d986d740378c1cbc6f5b96f696c4b5a"
+    },
+    "polish": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "33a8b5195481719e954b71762de56faaabc68c479602673894e0d0e47336756b"
+    },
+    "progressive-web-app": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "0bfeb35d5fb2072ccc5de45c674f8290a884ea7abe738c8137574712288a199f"
+    },
+    "push-notification-setup": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "bc69f5da67d4172b26ff2af8f30e509bdfb5962d0a0ddfde256ebf73cd83ec15"
+    },
+    "quieter": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "6066e73875e4770e624641355cc04662ce75d2b1d1a3673e24dcbd0ec8936297"
+    },
+    "react-composition-patterns": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "81fcf95a63235527f54afbe21b48764fae0ccf3a784980e7d2e4f49bf4740619"
+    },
+    "react-native-skills": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "634ed5d30e783648d89cdca383b3f6d74e1b1f0cb703f02e46572fe0c46cba32"
+    },
+    "recommendation-engine": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "1e80764a5e9d04fc65ce4aa21e9e6902b03ab57eaa212cb35d68bf1c0c415147"
+    },
+    "recommendation-system": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "34785f35d00a83135d29d350a67b09249b87011d21e901613dfc131ead919bb2"
+    },
+    "responsive-web-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "90bf6f937f6b65e837b74abfdbd39ed23327190dc6a187f3c2165f89fe0aa783"
+    },
+    "rest-api-design": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "880efbe978cee0c8b5e30159185457f6b86c128e4cf0a9daa089b848ed035a88"
+    },
+    "root-cause-tracing": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "0b7f59917fb3154294b61c6fd135ba997757ee39a5ae3bb95cdcf69170e2816f"
+    },
+    "security-headers-configuration": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "e4463c8323e8c7803423b5118e80ba77c7bfe558e823eb7e8b674afffe32b832"
+    },
+    "seo-keyword-cluster-builder": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "90a42a22685276bf9e4406bd57358e20b4b4679d1739fb1cdb41d0451b2acc2c"
+    },
+    "seo-optimizer": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "93d65c3aeb1faa474336d12a384b16bd9cf6cf588c82edb309b89ea2b826347d"
+    },
+    "sequential-thinking": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "9420fa44a3df9476884a8c493d3d7234da54e951d5229bd5f0d64eec04c12570"
+    },
+    "session-management": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "c79fcf2e85058835e8cc9594298cb4ee54a81d9d1f9c9ed502c716975e5fd951"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "9c37dfd40b1ab6ae68de7e6c9f61a09c69bc5489b7ffca47cdd52d340aae85c0"
+    },
+    "sveltia-cms": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d1a22a27778ad91b24eeb50c02cbf9cf8790f9595b6d82293bd2be9bade0c7a6"
+    },
+    "swift-best-practices": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "084dc29498a5085a85a711cf1f82d15376d950f3f7fba11bd1391dc8d1772956"
+    },
+    "systematic-debugging": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "e9f8b4bb2b6ad8410d2d4a03dba9152c7c8a48ac8e83a4627b56a03a1104e659"
+    },
+    "tailwind-v4-shadcn": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "dedaff41ff3331cfe9734eee4203a1e85c6a013eec46df83d9c00e3d36e421f9"
+    },
+    "tanstack-router": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "fe90dce5b73c9183af16310211aa37e6d735970c969bb2ceadad3d4e1de660ea"
+    },
+    "tanstack-table": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "448baa920da11eba1b46d818135940627cd3f118dde340a6db9479d7bf5f5cea"
+    },
+    "teach-impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "b3b5541bb9b0a260af793c7d79c2db4a436c2cd9384be34a4024c7f28af72e62"
+    },
+    "technical-specification": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "0e73468a08b44fc55ce927cdac01cdd3020e4abf93c9c5ce8bc2343646bffee8"
+    },
+    "test-quality-analysis": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "273af8ef6713b241d68027e42c7e3ccdcde5db79d40caaa6f2eaf270675a0139"
+    },
+    "thesys-generative-ui": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "6c70f8295c2290f7b7318c26998096532a97a0b4fe2a7af97d9efdef3e01cf29"
+    },
+    "threejs": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "f1f889c9f73e11bbbcc1a2dd286b92ea84ccf07960bdbe41cfaf82de24df9de3"
+    },
+    "turborepo": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "9c8b558bef91710fc276d47c2e6644a84b8aef1219b2c242f04c6a403ec4a692"
+    },
+    "typeset": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "0259de15644a89550cfd6a936a8e1866dcb35d20ccc96197614459233a9bcdb3"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "computedHash": "0a413bf988d06481f69bb81df2070741c3ba12dd9f1be2706d57f259c905992d"
+    },
+    "ultracite": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "745b3f68380bef51a02937d6fb70e0e5cf218dacbd92f6a8bb771287f069c81c"
+    },
+    "vercel-react-best-practices": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "f813d80f7cf4455e1de92473eb39c38c6d1be1a84928820454f6f79960852054"
+    },
+    "verification-before-completion": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "b069e5d683545bedb9e5178b055d3cdeb3209126ae2416d92aed61798a68387f"
+    },
+    "vitest-testing": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "4bcf65c119c1373bd1d57e64b72582d3724e482d39c9d889cda1591f078f4470"
+    },
+    "vulnerability-scanning": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "757cc4be25e2929818631833ba1f677c68609f2729ec8bc97d3bddc591881dae"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+    },
+    "web-performance-audit": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "2034f63d9a0cbfe437fd40ab636d271031690ab69d26ecb0e4599781271b8247"
+    },
+    "web-performance-optimization": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d85021dde0473e2a66be6de89878c84951c06247893e626bcdba5e9ba971626e"
+    },
+    "websocket-implementation": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "381fec8d6aa578ce52d2dd24ffa504471fc3e82ed3f15772784d564a34189f29"
+    },
+    "woocommerce-backend-dev": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "854080ed687e090a784a15af2b7a794b5fc4e677ccaf845e832f02190769fd56"
+    },
+    "woocommerce-code-review": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "1db10089630d5da150fefe451bb8896edd1895b28e594d62c72125307c538cf8"
+    },
+    "woocommerce-copy-guidelines": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "4370cd192476bdd591629beb8d6a4ccd90079a5c359c14a381277778d1f63b9c"
+    },
+    "woocommerce-dev-cycle": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "304f976112bb100441d803c16c7a4ac7b1a284d33766f6c004e75b2de941905c"
+    },
+    "workers-ci-cd": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "c3a8050986fb3906a43175a27008948352d7f03399f200346d0dcdec790e8250"
+    },
+    "workers-dev-experience": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d435733064f960ae81615a73522f7772f17ff9a6a0b719a86c88d8b38a6d40bd"
+    },
+    "workers-frameworks": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "45345c6f09aceb6f4f49d7ebbdba234aa8e1a467bb65c7746eb507c24e558133"
+    },
+    "workers-migration": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "41d43dc235fe51a76494cad0cb18ce03dcb02cfa833d494953a8eb3891dea82e"
+    },
+    "workers-multi-lang": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "3b5af63db2276a7fc3695b064144d4aa0e86f8801a6176c6e14ad309e646d3d3"
+    },
+    "workers-observability": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "19db9456c898a38b16d19a952309c43c42efc06c3cb1efc557a8e952712215f6"
+    },
+    "workers-performance": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "e31bb16da4cc8139b4076f27fb134e9c8299b59377eedccc8a9c434fe7e8c805"
+    },
+    "workers-runtime-apis": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "7e67ebfb2b91eff8740988f75606181e4bd2795cef6ec6199a7779d112e56ce3"
+    },
+    "workers-security": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "5e61c9a8aa6ebcb78788a9cb8b6184d8dbd535a3f6e1f434a543d2f049669412"
+    },
+    "zod": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "computedHash": "df8b575c28f7f93fbd7d7971d785d47b84055063654a05ddbebf8ebd3536b2c4"
+    }
+  }
+}
