@@ -5,8 +5,7 @@ import { PhoneMockup } from '@/components/PhoneMockup'
 import { MenuListScreen } from '@/components/mockups/MenuListScreen'
 import { MenuDetailScreen } from '@/components/mockups/MenuDetailScreen'
 import { OrderCompleteScreen } from '@/components/mockups/OrderCompleteScreen'
-import { DashboardScreen } from '@/components/mockups/DashboardScreen'
-import { OrderNotificationScreen } from '@/components/mockups/OrderNotificationScreen'
+import { DashboardDesktop } from '@/components/mockups/DashboardDesktop'
 
 const SOLUTIONS = [
   {
@@ -65,12 +64,7 @@ function SolutionScreen({ type }: { type: string }) {
         />
       )
     case 'dashboard':
-      return (
-        <DualPhone
-          main={<DashboardScreen />}
-          sub={<OrderNotificationScreen />}
-        />
-      )
+      return <DashboardDesktop />
     default:
       return null
   }
@@ -104,10 +98,13 @@ export function Solution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-center"
+              className={sol.screen === 'dashboard'
+                ? 'flex flex-col gap-10'
+                : 'grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-center'
+              }
             >
-              {/* 텍스트 — 5fr */}
-              <div className={`flex flex-col gap-5 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+              {/* 텍스트 */}
+              <div className={`flex flex-col gap-5 ${i % 2 === 1 && sol.screen !== 'dashboard' ? 'lg:order-2' : ''}`}>
                 <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[14px] font-bold w-fit ${sol.badgeColor}`}>
                   {sol.badge}
                 </span>
@@ -125,8 +122,8 @@ export function Solution() {
                 </ul>
               </div>
 
-              {/* 목업 — 7fr */}
-              <div className={`${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+              {/* 목업 */}
+              <div className={`${i % 2 === 1 && sol.screen !== 'dashboard' ? 'lg:order-1' : ''}`}>
                 <SolutionScreen type={sol.screen} />
               </div>
             </motion.div>
