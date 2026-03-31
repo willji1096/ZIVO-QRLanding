@@ -34,7 +34,7 @@ export function Hero() {
         >
           <motion.div variants={fadeUp} className="mb-6">
             <span className="inline-block px-5 py-2.5 bg-[#1A5DF7] rounded-lg text-[16px] font-bold text-white">
-              설치비 0원 · 14개국어 지원
+              설치비 0원 · 17개국어 지원
             </span>
           </motion.div>
 

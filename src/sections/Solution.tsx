@@ -10,9 +10,9 @@ import { DashboardDesktop } from '@/components/mockups/DashboardDesktop'
 const SOLUTIONS = [
   {
     badge: '다국어 자동 번역',
-    title: '14개국어로\n메뉴가 자동 번역됩니다',
-    description: '한국어 메뉴를 등록하면 영어, 일본어, 중국어 등 14개 언어로 자동 번역. 외국인 손님이 모국어로 메뉴를 보고, 모국어로 주문합니다.',
-    features: ['한국어 등록 한 번이면 끝', '14개 언어 자동 번역', '사진·옵션까지 완벽 번역'],
+    title: '17개국어로\n메뉴가 자동 번역됩니다',
+    description: '한국어 메뉴를 등록하면 영어, 일본어, 중국어 등 17개 언어로 자동 번역. 외국인 손님이 모국어로 메뉴를 보고, 모국어로 주문합니다.',
+    features: ['한국어 등록 한 번이면 끝', '17개 언어 자동 번역', '사진·옵션까지 완벽 번역'],
     badgeColor: 'bg-blue-100 text-blue-700',
     screen: 'multilang',
   },

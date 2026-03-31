@@ -46,7 +46,7 @@ export function CTA() {
                 '설치비·기기비 완전 무료',
                 '약정 없이 언제든 해지',
                 '1~3일 내 세팅 완료',
-                '14개국어 자동 번역',
+                '17개국어 자동 번역',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <Check size={18} className="text-[#1A5DF7] flex-shrink-0" />
