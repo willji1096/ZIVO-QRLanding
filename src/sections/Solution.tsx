@@ -72,7 +72,7 @@ function SolutionScreen({ type }: { type: string }) {
 
 export function Solution() {
   return (
-    <section id="solution" className="py-24 sm:py-32 md:py-40 bg-[#F1F5F9]">
+    <section id="solution" className="py-24 sm:py-32 md:py-40 bg-white">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -98,13 +98,10 @@ export function Solution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className={sol.screen === 'dashboard'
-                ? 'flex flex-col gap-10'
-                : 'grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-center'
-              }
+              className="grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-center"
             >
               {/* 텍스트 */}
-              <div className={`flex flex-col gap-5 ${i % 2 === 1 && sol.screen !== 'dashboard' ? 'lg:order-2' : ''}`}>
+              <div className={`flex flex-col gap-5 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[14px] font-bold w-fit ${sol.badgeColor}`}>
                   {sol.badge}
                 </span>
@@ -123,7 +120,7 @@ export function Solution() {
               </div>
 
               {/* 목업 */}
-              <div className={`${i % 2 === 1 && sol.screen !== 'dashboard' ? 'lg:order-1' : ''}`}>
+              <div className={`${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                 <SolutionScreen type={sol.screen} />
               </div>
             </motion.div>
