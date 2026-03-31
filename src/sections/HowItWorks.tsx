@@ -37,55 +37,83 @@ const QR_PATTERN = [
   1,1,1,0,1,1,1,
 ]
 
-function QRCard({ className, style, children }: { className?: string; style?: React.CSSProperties; children?: React.ReactNode }) {
+const CARD_ROTATE = 'rotateX(16deg) rotateY(-22deg) rotateZ(2deg)'
+const THICKNESS = 6 // 카드 두께 px
+
+function Card3D({ className, children, translateZ = 0 }: { className?: string; children?: React.ReactNode; translateZ?: number }) {
   return (
     <div
-      className={`w-[220px] h-[310px] rounded-3xl ${className}`}
-      style={{ transformStyle: 'preserve-3d', ...style }}
+      className="relative"
+      style={{ transformStyle: 'preserve-3d', transform: `${CARD_ROTATE} translateZ(${translateZ}px)` }}
     >
-      {children}
+      {/* 앞면 */}
+      <div className={`w-[220px] h-[310px] rounded-3xl ${className}`} style={{ transformStyle: 'preserve-3d' }}>
+        {children}
+      </div>
+      {/* 오른쪽 옆면 — 두께 */}
+      <div
+        className="absolute top-0 right-0 h-full rounded-r-lg"
+        style={{
+          width: `${THICKNESS}px`,
+          background: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(0,0,0,0.15))',
+          transform: `translateX(${THICKNESS / 2}px) rotateY(90deg)`,
+          transformOrigin: 'right center',
+        }}
+      />
+      {/* 아래쪽 옆면 — 두께 */}
+      <div
+        className="absolute bottom-0 left-0 w-full rounded-b-lg"
+        style={{
+          height: `${THICKNESS}px`,
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0.12))',
+          transform: `translateY(${THICKNESS / 2}px) rotateX(-90deg)`,
+          transformOrigin: 'bottom center',
+        }}
+      />
     </div>
   )
 }
 
 function QRCardStack() {
   return (
-    <div className="relative w-[320px] h-[420px] hidden lg:block" style={{ perspective: '1200px' }}>
-      {/* 뒤 카드 3 */}
+    <div className="relative w-[340px] h-[440px] hidden lg:block" style={{ perspective: '1000px', perspectiveOrigin: '60% 40%' }}>
+      {/* 뒤 카드 */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         className="absolute"
-        style={{ top: '60px', left: '70px', transform: 'rotateX(12deg) rotateY(-18deg) rotateZ(3deg)' }}
+        style={{ top: '80px', left: '80px' }}
       >
-        <QRCard className="bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] shadow-[0_20px_60px_rgba(26,93,247,0.15)] opacity-30" />
+        <Card3D className="bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] opacity-35" translateZ={-20} />
       </motion.div>
 
-      {/* 중간 카드 2 */}
+      {/* 중간 카드 */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         className="absolute"
-        style={{ top: '30px', left: '35px', transform: 'rotateX(12deg) rotateY(-18deg) rotateZ(3deg)' }}
+        style={{ top: '40px', left: '40px' }}
       >
-        <QRCard className="bg-gradient-to-br from-[#1A5DF7] to-[#60A5FA] shadow-[0_20px_60px_rgba(26,93,247,0.2)] opacity-60" />
+        <Card3D className="bg-gradient-to-br from-[#1A5DF7] to-[#60A5FA] opacity-65" translateZ={-10} />
       </motion.div>
 
-      {/* 앞 카드 1 — QR 스티커 */}
+      {/* 앞 카드 — QR 스티커 */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
         className="absolute"
-        style={{ top: '0px', left: '0px', transform: 'rotateX(12deg) rotateY(-18deg) rotateZ(3deg)' }}
+        style={{ top: '0px', left: '0px' }}
       >
-        <QRCard className="bg-white shadow-[0_4px_8px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.12),0_32px_80px_rgba(0,0,0,0.08)] p-6 flex flex-col items-center justify-between">
-          {/* 상단 */}
+        <Card3D
+          className="bg-white shadow-[0_4px_8px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.1),0_40px_100px_rgba(0,0,0,0.06)] p-6 flex flex-col items-center justify-between"
+          translateZ={0}
+        >
           <div className="text-center">
             <div className="w-9 h-9 rounded-xl bg-[#1A5DF7] flex items-center justify-center mx-auto mb-2">
               <span className="text-white text-[12px] font-extrabold">Z</span>
@@ -94,7 +122,6 @@ function QRCardStack() {
             <span className="text-[10px] text-[#94A3B8] block mt-0.5">The Timber House</span>
           </div>
 
-          {/* QR 코드 */}
           <div className="w-[130px] h-[130px] bg-[#0F172A] rounded-2xl p-3 my-4">
             <div className="w-full h-full grid grid-cols-7 grid-rows-7 gap-[2px]">
               {QR_PATTERN.map((filled, i) => (
@@ -103,12 +130,11 @@ function QRCardStack() {
             </div>
           </div>
 
-          {/* 하단 */}
           <div className="text-center">
             <span className="text-[22px] font-extrabold text-[#0F172A] block tracking-wide">T17</span>
             <span className="text-[10px] text-[#94A3B8] mt-0.5 block">QR을 스캔하여 주문하세요</span>
           </div>
-        </QRCard>
+        </Card3D>
       </motion.div>
     </div>
   )
