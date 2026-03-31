@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
 import { Badge } from '@/components/Badge'
+import { QRCardStack } from '@/components/QRCardStack'
 
 const STEPS = [
   {
@@ -26,126 +27,12 @@ const STEPS = [
   },
 ]
 
-/* QR 코드 패턴 — 고정값 (렌더 때마다 바뀌지 않도록) */
-const QR_PATTERN = [
-  1,1,1,0,1,1,1,
-  1,0,1,1,1,0,1,
-  1,1,1,0,1,1,1,
-  0,1,0,1,0,1,0,
-  1,1,1,0,1,0,1,
-  1,0,1,1,0,1,1,
-  1,1,1,0,1,1,1,
-]
-
-const CARD_ROTATE = 'rotateX(16deg) rotateY(-22deg) rotateZ(2deg)'
-const THICKNESS = 6 // 카드 두께 px
-
-function Card3D({ className, children, translateZ = 0 }: { className?: string; children?: React.ReactNode; translateZ?: number }) {
-  return (
-    <div
-      className="relative"
-      style={{ transformStyle: 'preserve-3d', transform: `${CARD_ROTATE} translateZ(${translateZ}px)` }}
-    >
-      {/* 앞면 */}
-      <div className={`w-[220px] h-[310px] rounded-3xl ${className}`} style={{ transformStyle: 'preserve-3d' }}>
-        {children}
-      </div>
-      {/* 오른쪽 옆면 — 두께 */}
-      <div
-        className="absolute top-0 right-0 h-full rounded-r-lg"
-        style={{
-          width: `${THICKNESS}px`,
-          background: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(0,0,0,0.15))',
-          transform: `translateX(${THICKNESS / 2}px) rotateY(90deg)`,
-          transformOrigin: 'right center',
-        }}
-      />
-      {/* 아래쪽 옆면 — 두께 */}
-      <div
-        className="absolute bottom-0 left-0 w-full rounded-b-lg"
-        style={{
-          height: `${THICKNESS}px`,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0.12))',
-          transform: `translateY(${THICKNESS / 2}px) rotateX(-90deg)`,
-          transformOrigin: 'bottom center',
-        }}
-      />
-    </div>
-  )
-}
-
-function QRCardStack() {
-  return (
-    <div className="relative w-[340px] h-[440px] hidden lg:block" style={{ perspective: '1000px', perspectiveOrigin: '60% 40%' }}>
-      {/* 뒤 카드 */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-        className="absolute"
-        style={{ top: '80px', left: '80px' }}
-      >
-        <Card3D className="bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] opacity-35" translateZ={-20} />
-      </motion.div>
-
-      {/* 중간 카드 */}
-      <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-        className="absolute"
-        style={{ top: '40px', left: '40px' }}
-      >
-        <Card3D className="bg-gradient-to-br from-[#1A5DF7] to-[#60A5FA] opacity-65" translateZ={-10} />
-      </motion.div>
-
-      {/* 앞 카드 — QR 스티커 */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-        className="absolute"
-        style={{ top: '0px', left: '0px' }}
-      >
-        <Card3D
-          className="bg-white shadow-[0_4px_8px_rgba(0,0,0,0.03),0_20px_50px_rgba(0,0,0,0.1),0_40px_100px_rgba(0,0,0,0.06)] p-6 flex flex-col items-center justify-between"
-          translateZ={0}
-        >
-          <div className="text-center">
-            <div className="w-9 h-9 rounded-xl bg-[#1A5DF7] flex items-center justify-center mx-auto mb-2">
-              <span className="text-white text-[12px] font-extrabold">Z</span>
-            </div>
-            <span className="text-[12px] font-bold text-[#0F172A]">ZIVO QR Order</span>
-            <span className="text-[10px] text-[#94A3B8] block mt-0.5">The Timber House</span>
-          </div>
-
-          <div className="w-[130px] h-[130px] bg-[#0F172A] rounded-2xl p-3 my-4">
-            <div className="w-full h-full grid grid-cols-7 grid-rows-7 gap-[2px]">
-              {QR_PATTERN.map((filled, i) => (
-                <div key={i} className={`rounded-[1px] ${filled ? 'bg-white' : 'bg-white/15'}`} />
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center">
-            <span className="text-[22px] font-extrabold text-[#0F172A] block tracking-wide">T17</span>
-            <span className="text-[10px] text-[#94A3B8] mt-0.5 block">QR을 스캔하여 주문하세요</span>
-          </div>
-        </Card3D>
-      </motion.div>
-    </div>
-  )
-}
-
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="py-24 sm:py-32 md:py-40 bg-[#0F172A]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-[1fr_auto] gap-16 lg:gap-20">
-          {/* Left: Content */}
+          {/* Left */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -163,7 +50,6 @@ export function HowItWorks() {
               </p>
             </motion.div>
 
-            {/* Timeline */}
             <div className="flex flex-col">
               {STEPS.map((step, i) => (
                 <motion.div
@@ -182,7 +68,6 @@ export function HowItWorks() {
                       <div className="w-[2px] flex-1 mt-4 bg-gradient-to-b from-[#1A5DF7]/40 to-transparent" />
                     )}
                   </div>
-
                   <div className="flex-1 pt-1 pb-2">
                     <h3 className="text-[24px] md:text-[28px] font-extrabold text-white leading-[1.2] mb-3">
                       {step.title}
@@ -191,19 +76,14 @@ export function HowItWorks() {
                       {step.desc}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
-                      <span className="text-[14px] text-[#60A5FA] font-semibold">
-                        {step.detail}
-                      </span>
-                      <span className="text-[14px] text-white/30 font-medium">
-                        {step.time}
-                      </span>
+                      <span className="text-[14px] text-[#60A5FA] font-semibold">{step.detail}</span>
+                      <span className="text-[14px] text-white/30 font-medium">{step.time}</span>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -220,7 +100,7 @@ export function HowItWorks() {
             </motion.div>
           </div>
 
-          {/* Right: 3D QR Card Stack */}
+          {/* Right — 피그마 기반 3D QR 카드 스택 */}
           <div className="flex items-center justify-center">
             <QRCardStack />
           </div>
