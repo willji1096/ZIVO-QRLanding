@@ -24,18 +24,18 @@ export function DashboardDesktop() {
             <div className="w-7 h-7 rounded-lg bg-[#1A5DF7] flex items-center justify-center mb-2">
               <span className="text-white text-[9px] font-extrabold">Z</span>
             </div>
-            {['dashboard', 'storefront', 'restaurant_menu', 'receipt_long', 'payments', 'table_bar', 'reviews'].map((name, i) => (
-              <div key={name} className={`w-7 h-7 rounded-lg flex items-center justify-center text-[12px] ${
-                i === 0 ? 'bg-[#EFF6FF] text-[#1A5DF7]' : 'text-[#94A3B8]'
+            {[
+              { d: 'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z', active: true },
+              { d: 'M9 5H2v14h20V5h-7M12 3v18' },
+              { d: 'M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z' },
+              { d: 'M12 20V10M18 20V4M6 20v-4' },
+              { d: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2' },
+            ].map((icon, i) => (
+              <div key={i} className={`w-7 h-7 rounded-lg flex items-center justify-center ${
+                icon.active ? 'bg-[#EFF6FF] text-[#1A5DF7]' : 'text-[#94A3B8]'
               }`}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  {i === 0 && <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />}
-                  {i === 1 && <path d="M3 3h18v18H3zM3 9h18M9 21V9" />}
-                  {i === 2 && <path d="M3 6h18M3 12h18M3 18h18" />}
-                  {i === 3 && <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />}
-                  {i === 4 && <><rect x="1" y="4" width="22" height="16" rx="2" /><path d="M1 10h22" /></>}
-                  {i === 5 && <path d="M12 3v18M3 12h18" />}
-                  {i === 6 && <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />}
+                  <path d={icon.d} />
                 </svg>
               </div>
             ))}
