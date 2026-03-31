@@ -3,6 +3,7 @@ import { Check } from 'lucide-react'
 import { Badge } from '@/components/Badge'
 import { PhoneMockup } from '@/components/PhoneMockup'
 import { MenuListScreen } from '@/components/mockups/MenuListScreen'
+import { MenuDetailScreen } from '@/components/mockups/MenuDetailScreen'
 import { OrderCompleteScreen } from '@/components/mockups/OrderCompleteScreen'
 import { DashboardScreen } from '@/components/mockups/DashboardScreen'
 import { OrderNotificationScreen } from '@/components/mockups/OrderNotificationScreen'
@@ -53,7 +54,7 @@ function SolutionScreen({ type }: { type: string }) {
       return (
         <DualPhone
           main={<MenuListScreen lang="en" />}
-          sub={<MenuListScreen lang="ja" />}
+          sub={<MenuDetailScreen lang="en" />}
         />
       )
     case 'order':
