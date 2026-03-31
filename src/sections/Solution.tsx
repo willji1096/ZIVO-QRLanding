@@ -72,7 +72,7 @@ function SolutionScreen({ type }: { type: string }) {
 
 export function Solution() {
   return (
-    <section id="solution" className="py-24 sm:py-32 md:py-40 bg-white">
+    <section id="solution" className="py-24 sm:py-32 md:py-40 bg-[#F8FAFC]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

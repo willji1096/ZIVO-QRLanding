@@ -12,7 +12,7 @@ const REVIEWS = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 sm:py-32 md:py-40 bg-[#F8FAFC]">
+    <section id="testimonials" className="py-24 sm:py-32 md:py-40 bg-white">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

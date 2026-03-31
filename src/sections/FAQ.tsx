@@ -16,7 +16,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section id="faq" className="py-24 sm:py-32 md:py-40 bg-[#F1F5F9]">
+    <section id="faq" className="py-24 sm:py-32 md:py-40 bg-[#F8FAFC]">
       <div className="max-w-[800px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
