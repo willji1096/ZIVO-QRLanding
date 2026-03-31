@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Hero } from './sections/Hero'
 
-const TrustBar = lazy(() => import('./sections/TrustBar').then(m => ({ default: m.TrustBar })))
 const PainPoints = lazy(() => import('./sections/PainPoints').then(m => ({ default: m.PainPoints })))
 const Solution = lazy(() => import('./sections/Solution').then(m => ({ default: m.Solution })))
 const Stats = lazy(() => import('./sections/Stats').then(m => ({ default: m.Stats })))
@@ -23,9 +22,6 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Suspense fallback={<SectionLoader />}>
-          <TrustBar />
-        </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <PainPoints />
         </Suspense>
