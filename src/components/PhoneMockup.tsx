@@ -5,8 +5,9 @@ interface PhoneMockupProps {
 }
 
 export function PhoneMockup({ children, className = '', size = 'default' }: PhoneMockupProps) {
-  const sizeClass = size === 'lg' ? 'w-[280px] sm:w-[300px]' : 'w-[240px] sm:w-[260px]'
-  const heightClass = size === 'lg' ? 'h-[540px] sm:h-[580px]' : 'h-[480px] sm:h-[520px]'
+  // 파트너 랜딩 기준: 240x480 (1:2 비율)
+  const sizeClass = size === 'lg' ? 'w-[240px] sm:w-[260px]' : 'w-[220px] sm:w-[240px]'
+  const heightClass = size === 'lg' ? 'h-[480px] sm:h-[520px]' : 'h-[440px] sm:h-[480px]'
 
   return (
     <div className={`${sizeClass} ${className}`}>
