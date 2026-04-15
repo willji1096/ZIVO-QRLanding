@@ -13,7 +13,7 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0F1C]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -21,8 +21,8 @@ export function Hero() {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0F1C] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-white/10" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </div>
 
       <div className="relative max-w-[1024px] mx-auto px-6 lg:px-12 pt-28 pb-20 md:pt-40 md:pb-32 w-full">
@@ -33,14 +33,14 @@ export function Hero() {
           variants={stagger}
         >
           <motion.div variants={fadeUp} className="mb-6">
-            <span className="inline-block px-5 py-2.5 bg-[#1A5DF7] rounded-lg text-[16px] font-bold text-white">
+            <span className="inline-block px-5 py-2.5 bg-[#1A5DF7] rounded-lg text-[16px] font-bold text-white shadow-[0_4px_16px_rgba(26,93,247,0.25)]">
               도입비용 0원 · 전세계 언어 지원
             </span>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
-            className="text-[42px] sm:text-[58px] md:text-[72px] lg:text-[84px] font-extrabold text-white leading-[1.05] tracking-[-0.025em] mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)]"
+            className="text-[42px] sm:text-[58px] md:text-[72px] lg:text-[84px] font-extrabold text-[#0F172A] leading-[1.05] tracking-[-0.025em] mb-8"
           >
             외국인 불러오는
             <br />
@@ -51,7 +51,7 @@ export function Hero() {
 
           <motion.p
             variants={fadeUp}
-            className="text-[19px] md:text-[23px] text-white/90 leading-[1.6] font-medium mb-10 max-w-xl drop-shadow-[0_1px_8px_rgba(0,0,0,0.2)]"
+            className="text-[19px] md:text-[23px] text-[#334155] leading-[1.6] font-medium mb-10 max-w-xl"
           >
             바로 외국인들에게 우리 매장을 노출시키세요.
             <br className="hidden sm:block" />
@@ -68,7 +68,7 @@ export function Hero() {
             </a>
             <a
               href="#solution"
-              className="inline-flex items-center justify-center h-[56px] px-10 text-white text-[18px] font-bold rounded-xl bg-white/15 backdrop-blur-sm hover:bg-white/25 active:scale-[0.96] transition-[background-color,transform] duration-200"
+              className="inline-flex items-center justify-center h-[56px] px-10 text-[#0F172A] text-[18px] font-bold rounded-xl bg-white/80 backdrop-blur-sm border border-[#E2E8F0] hover:bg-white active:scale-[0.96] transition-[background-color,transform] duration-200 shadow-[0_2px_8px_rgba(15,23,42,0.06)]"
             >
               서비스 알아보기
             </a>
