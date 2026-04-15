@@ -14,40 +14,40 @@ export function PainPoints() {
         >
           <Badge>사장님의 고민</Badge>
           <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
-            외국인 손님 올 때마다
+            외국인 손님을 놓치는 순간,
             <br />
-            이런 일 반복되지 않으셨나요?
+            매출도 함께 빠져나갑니다.
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-5 md:gap-6">
           {[
             {
-              label: '언어 장벽',
-              title: '손짓발짓 주문,\n매일 15분 낭비',
-              desc: '번역기 돌려가며 주문받다 보면 한 테이블에 15분. 다른 손님은 기다리고, 직원은 지칩니다.',
-              stat: '72%',
-              statDesc: '외국인 관광객의 주문 시 언어 문제 경험 비율',
+              label: '외국인 매출 기회손실',
+              title: '언어 안 통해서\n그냥 돌아가는 손님',
+              desc: '메뉴판이 안 읽히면 손님은 문 앞에서 돌아섭니다. 우리 매장이 노출되지 않으면, 외국인 매출은 0원입니다.',
+              stat: '230%',
+              statDesc: '전세계 언어 메뉴 도입 매장의 외국인 매출 증가율',
               labelColor: 'text-[#1E3A8A]',
               statColor: 'text-[#1E3A8A]',
               descColor: 'text-[#3B82F6]',
             },
             {
-              label: '인건비',
-              title: '외국어 직원 채용,\n월 180만원 추가',
-              desc: '인건비도 부담인데 구하기도 쉽지 않습니다. 매출 대비 비용만 늘어납니다.',
-              stat: '180만+',
-              statDesc: '외국어 가능 직원 월 추가 인건비',
+              label: '주문 편의',
+              title: '손짓발짓 주문,\n한 테이블에 15분',
+              desc: '번역기 돌려가며 주문받다 보면 다른 손님은 기다리고, 오주문·빠진 옵션으로 재조리·클레임까지 반복됩니다.',
+              stat: '72%',
+              statDesc: '외국인 관광객의 주문 시 언어 문제 경험 비율',
               labelColor: 'text-[#1A5DF7]',
               statColor: 'text-[#1A5DF7]',
               descColor: 'text-[#60A5FA]',
             },
             {
-              label: '주문 오류',
-              title: '오주문, 빠진 옵션,\n클레임 반복',
-              desc: '소통 문제로 잘못된 주문이 발생하고, 재조리 비용에 손님 불만까지.',
-              stat: '45%',
-              statDesc: '주문 오류 중 언어 소통 문제 비율',
+              label: '인건비 세이브',
+              title: '외국어 직원 채용,\n월 180만원 추가',
+              desc: '외국어 가능 직원은 구하기도 어렵고 비용도 부담. QR 오더 하나로 추가 인건비 없이 해결됩니다.',
+              stat: '180만+',
+              statDesc: '외국어 가능 직원 월 추가 인건비 (세이브 가능액)',
               labelColor: 'text-[#60A5FA]',
               statColor: 'text-[#60A5FA]',
               descColor: 'text-[#93C5FD]',

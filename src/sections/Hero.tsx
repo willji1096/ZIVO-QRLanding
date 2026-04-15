@@ -17,7 +17,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80&auto=format&fit=crop"
+          src="/hero.png"
           alt=""
           className="w-full h-full object-cover"
         />
@@ -34,7 +34,7 @@ export function Hero() {
         >
           <motion.div variants={fadeUp} className="mb-6">
             <span className="inline-block px-5 py-2.5 bg-[#1A5DF7] rounded-lg text-[16px] font-bold text-white">
-              설치비 0원 · 17개국어 지원
+              도입비용 0원 · 전세계 언어 지원
             </span>
           </motion.div>
 
@@ -42,20 +42,20 @@ export function Hero() {
             variants={fadeUp}
             className="text-[42px] sm:text-[58px] md:text-[72px] lg:text-[84px] font-extrabold text-white leading-[1.05] tracking-[-0.025em] mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)]"
           >
-            외국인 관광객,
+            외국인 불러오는
             <br />
-            QR 하나로
+            QR 오더
             <br />
-            주문받으세요
+            서비스
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="text-[19px] md:text-[23px] text-white/90 leading-[1.6] font-medium mb-10 max-w-xl drop-shadow-[0_1px_8px_rgba(0,0,0,0.2)]"
           >
-            테이블에 QR만 붙이면, 외국인 손님이
+            바로 외국인들에게 우리 매장을 노출시키세요.
             <br className="hidden sm:block" />
-            모국어로 메뉴를 보고 직접 주문합니다.
+            도입비용 0원으로 외국인 매출부터 올립니다.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">

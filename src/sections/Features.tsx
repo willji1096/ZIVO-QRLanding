@@ -6,7 +6,7 @@ import {
 import { Badge } from '@/components/Badge'
 
 const FEATURES = [
-  { icon: Globe, title: '17개국어 자동 번역', desc: '한국어로 메뉴를 한 번만 등록하면 17개 언어로 자동 번역됩니다. 사진, 설명, 옵션까지 완벽하게.' },
+  { icon: Globe, title: '전세계 언어 자동 번역', desc: '한국어로 메뉴를 한 번만 등록하면 전세계 언어로 자동 번역됩니다. 사진, 설명, 옵션까지 완벽하게.' },
   { icon: Smartphone, title: '웹 기반, 앱 설치 불필요', desc: '손님 스마트폰에 아무것도 설치할 필요 없습니다. QR 스캔만으로 바로 메뉴가 열립니다.' },
   { icon: Bell, title: '실시간 주문 알림', desc: '새로운 주문이 들어오면 즉시 알림. 바쁜 시간대에도 놓치는 주문 없이 빠르게 처리하세요.' },
   { icon: Settings, title: '메뉴 관리', desc: '메뉴 추가, 가격 수정, 품절 처리를 실시간으로 반영. 사진 교체와 옵션 변경도 즉시 가능.' },

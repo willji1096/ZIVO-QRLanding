@@ -43,10 +43,10 @@ export function CTA() {
 
             <div className="flex flex-col gap-4 mt-10">
               {[
-                '설치비·기기비 0원',
+                '도입비용 0원 (설치비·기기비 無)',
                 '약정 없이 언제든 해지',
                 '1~3일 내 세팅 완료',
-                '17개국어 자동 번역',
+                '전세계 언어 자동 번역',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <Check size={18} className="text-[#1A5DF7] flex-shrink-0" />

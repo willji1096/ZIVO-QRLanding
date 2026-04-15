@@ -8,7 +8,7 @@ export function Footer() {
               ZIVO<span className="text-[#1A5DF7]"> QR</span>
             </span>
             <p className="mt-2 text-[13px] text-white/30 max-w-xs leading-relaxed">
-              외국인 관광객을 위한 다국어 QR 주문 솔루션.
+              외국인 관광객을 위한 전세계 언어 QR 주문 솔루션.
             </p>
           </div>
           <div className="flex gap-10 text-[13px]">
