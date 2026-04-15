@@ -79,7 +79,7 @@ export function Solution() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24"
+          className="mb-16 md:mb-24 text-center"
         >
           <Badge>ZIVO QR 솔루션</Badge>
           <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">

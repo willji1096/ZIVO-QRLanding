@@ -10,7 +10,7 @@ export function PainPoints() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-14 md:mb-20"
+          className="mb-14 md:mb-20 text-center"
         >
           <Badge>사장님의 고민</Badge>
           <h2 className="mt-5 text-[24px] sm:text-[30px] md:text-[36px] font-extrabold text-[#0F172A] leading-[1.1] tracking-[-0.02em]">
@@ -44,10 +44,10 @@ export function PainPoints() {
             },
             {
               label: '인건비 세이브',
-              title: '외국어 직원 채용,\n월 180만원 추가',
-              desc: '외국어 가능 직원은 구하기도 어렵고 비용도 부담. QR 오더 하나로 추가 인건비 없이 해결됩니다.',
-              stat: '180만+',
-              statDesc: '외국어 가능 직원 월 추가 인건비 (세이브 가능액)',
+              title: '채용 없이,\n매달 180만원 세이브',
+              desc: '외국어 가능 직원을 따로 뽑지 않아도, QR 오더 하나면 외국인 손님을 그대로 받을 수 있습니다. 매달 나가던 인건비가 통째로 남습니다.',
+              stat: '-180만',
+              statDesc: 'ZIVO 도입 시 매월 아끼는 인건비',
               labelColor: 'text-[#60A5FA]',
               statColor: 'text-[#60A5FA]',
               descColor: 'text-[#93C5FD]',
