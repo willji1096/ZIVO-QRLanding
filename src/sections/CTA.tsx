@@ -24,7 +24,7 @@ export function CTA() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(26,93,247,0.15)_0%,_transparent_60%)]" />
 
       <div className="relative max-w-[1024px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-14 lg:gap-24 items-start">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -32,21 +32,21 @@ export function CTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-[32px] sm:text-[40px] md:text-[52px] font-extrabold text-white leading-[1.1] tracking-[-0.02em]">
-              지금 바로
-              <br />
-              시작하세요
+            <h2 className="text-[32px] sm:text-[40px] md:text-[52px] font-extrabold text-white leading-[1.15] tracking-[-0.02em]">
+              망설이는 사이,{' '}
+              <span className="text-[#60A5FA]">외국인은 옆&nbsp;매장</span>에 들어갑니다.
             </h2>
-            <p className="mt-5 text-[16px] md:text-[18px] text-white/50 leading-[1.6] max-w-md font-medium">
-              망설이는 지금 이 순간에도, 경쟁 매장은 외국인 관광객의 주문을 받고 있습니다.
+            <p className="mt-6 text-[16px] md:text-[18px] text-white/60 leading-[1.7] max-w-md font-medium">
+              월 고정비 0원 · 주문당 후불. 잃을 것 없는 제안입니다. 지금&nbsp;신청하고 일주일 안에 첫 외국인 QR 주문을 받으세요.
             </p>
 
             <div className="flex flex-col gap-4 mt-10">
               {[
-                '도입비용 0원 (설치비·기기비 無)',
+                '월 고정비 0원 · 주문당 후불 과금',
                 '약정 없이 언제든 해지',
                 '1~3일 내 세팅 완료',
-                '전세계 언어 자동 번역',
+                '32개국어 자동 번역',
+                'ZIVO 앱 매장 노출 포함',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <Check size={18} className="text-[#1A5DF7] flex-shrink-0" />

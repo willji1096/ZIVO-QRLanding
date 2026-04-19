@@ -2,13 +2,14 @@ import { lazy, Suspense } from 'react'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Hero } from './sections/Hero'
+import { WideBreak } from './sections/WideBreak'
 
 const PainPoints = lazy(() => import('./sections/PainPoints').then(m => ({ default: m.PainPoints })))
 const Solution = lazy(() => import('./sections/Solution').then(m => ({ default: m.Solution })))
+const QRShowcase = lazy(() => import('./sections/QRShowcase').then(m => ({ default: m.QRShowcase })))
 const Stats = lazy(() => import('./sections/Stats').then(m => ({ default: m.Stats })))
 const Features = lazy(() => import('./sections/Features').then(m => ({ default: m.Features })))
 const HowItWorks = lazy(() => import('./sections/HowItWorks').then(m => ({ default: m.HowItWorks })))
-const Testimonials = lazy(() => import('./sections/Testimonials').then(m => ({ default: m.Testimonials })))
 const FAQ = lazy(() => import('./sections/FAQ').then(m => ({ default: m.FAQ })))
 const CTA = lazy(() => import('./sections/CTA').then(m => ({ default: m.CTA })))
 
@@ -25,20 +26,23 @@ export default function App() {
         <Suspense fallback={<SectionLoader />}>
           <PainPoints />
         </Suspense>
+        <WideBreak variant="tourism" />
         <Suspense fallback={<SectionLoader />}>
           <Solution />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <Stats />
         </Suspense>
+        <WideBreak variant="language" />
         <Suspense fallback={<SectionLoader />}>
           <Features />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
-          <HowItWorks />
+          <QRShowcase />
         </Suspense>
+        <WideBreak variant="sticker" />
         <Suspense fallback={<SectionLoader />}>
-          <Testimonials />
+          <HowItWorks />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <FAQ />

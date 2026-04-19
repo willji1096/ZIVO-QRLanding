@@ -15,9 +15,12 @@ html {
 
 body {
   text-rendering: optimizeLegibility;
+  /* 한국어 어절 단위로 끊기 — 글자 중간에서 안 끊김 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
-/* text-wrap utilities */
+/* text-wrap utilities (배치 균형 — 고아 단어 방지) */
 h1, h2, h3 {
   text-wrap: balance;
 }

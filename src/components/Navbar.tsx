@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: '서비스 소개', href: '#solution' },
   { label: '주요 기능', href: '#features' },
-  { label: '도입 후기', href: '#testimonials' },
+  { label: '도입 과정', href: '#how-it-works' },
   { label: 'FAQ', href: '#faq' },
 ]
 
@@ -13,25 +13,31 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-black/[0.04]'
-          : 'bg-transparent'
+          ? 'bg-white/92 backdrop-blur-md border-b border-black/[0.05]'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-[1024px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[56px] md:h-[64px]">
-        <a href="#" className="flex items-center">
-          <span className={`text-[18px] font-extrabold tracking-[-0.01em] transition-colors duration-300 ${
-            scrolled ? 'text-[#0F172A]' : 'text-white'
+      <div className="max-w-[1120px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[60px] md:h-[68px]">
+        <a href="#" className="flex items-center gap-2">
+          <img
+            src={scrolled ? '/logo/zivo-logo-dark.svg' : '/logo/zivo-logo-white.svg'}
+            alt="zivo"
+            className="h-[22px] w-auto transition-opacity"
+            draggable={false}
+          />
+          <span className={`text-[14px] font-bold tracking-[-0.01em] transition-colors duration-300 ${
+            scrolled ? 'text-[#1A5DF7]' : 'text-white/90'
           }`}>
-            ZIVO<span className="text-[#1A5DF7]"> QR</span>
+            QR
           </span>
         </a>
 
@@ -40,8 +46,8 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-[14px] font-medium transition-colors duration-200 hover:text-[#1A5DF7] ${
-                scrolled ? 'text-[#64748B]' : 'text-white/60'
+              className={`text-[14px] font-semibold transition-colors duration-200 hover:text-[#1A5DF7] ${
+                scrolled ? 'text-[#475569]' : 'text-white/80'
               }`}
             >
               {link.label}
@@ -49,17 +55,18 @@ export function Navbar() {
           ))}
           <a
             href="#cta"
-            className="h-9 pl-5 pr-4.5 inline-flex items-center text-[13px] font-semibold text-white bg-[#1A5DF7] rounded-lg hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-150 ease-out"
+            className="group h-10 pl-5 pr-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-white bg-[#1A5DF7] rounded-lg hover:bg-[#1549D4] active:scale-[0.96] transition-[background-color,transform] duration-150 shadow-[0_6px_18px_rgba(26,93,247,0.3)]"
           >
             도입 신청
+            <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-150" />
           </a>
         </div>
 
-        <button className="md:hidden p-1.5" onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="md:hidden p-1.5" onClick={() => setMenuOpen(!menuOpen)} aria-label="메뉴">
           {menuOpen ? (
-            <X className={scrolled ? 'text-[#0F172A]' : 'text-white'} size={22} />
+            <X className="text-[#0F172A]" size={22} />
           ) : (
-            <Menu className={scrolled ? 'text-[#0F172A]' : 'text-white'} size={22} />
+            <Menu className="text-[#0F172A]" size={22} />
           )}
         </button>
       </div>
@@ -80,7 +87,7 @@ export function Navbar() {
             <a
               href="#cta"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 h-11 flex items-center justify-center text-[14px] font-semibold text-white bg-[#1A5DF7] rounded-lg"
+              className="mt-2 h-11 flex items-center justify-center text-[14px] font-bold text-white bg-[#1A5DF7] rounded-lg"
             >
               도입 신청
             </a>
