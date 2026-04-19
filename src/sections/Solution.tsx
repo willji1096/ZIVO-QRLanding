@@ -52,9 +52,11 @@ const SOLUTIONS = [
 
 function DualPhone({ main, sub }: { main: React.ReactNode; sub: React.ReactNode }) {
   return (
-    <div className="flex justify-center gap-5">
+    <div className="flex justify-center gap-0 sm:gap-6 lg:gap-5">
       <PhoneMockup>{main}</PhoneMockup>
-      <PhoneMockup className="hidden sm:block">{sub}</PhoneMockup>
+      <PhoneMockup className="-ml-[50px] -mt-6 sm:ml-0 sm:mt-0 relative z-10 drop-shadow-[-6px_4px_16px_rgba(0,0,0,0.18)] sm:drop-shadow-none">
+        {sub}
+      </PhoneMockup>
     </div>
   )
 }
