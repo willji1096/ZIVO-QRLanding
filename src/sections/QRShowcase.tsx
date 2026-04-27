@@ -4,13 +4,9 @@ import { useRef } from 'react'
 const COLORS = [
   { name: 'Signal Blue', hex: '#1A5DF7' },
   { name: 'Deep Navy', hex: '#1E3A8A' },
-  { name: 'Terracotta', hex: '#C0583B' },
-  { name: 'Sage Green', hex: '#6C8B6E' },
-  { name: 'Forest', hex: '#2F5A3A' },
-  { name: 'Warm Beige', hex: '#D9C9A8' },
-  { name: 'Cream', hex: '#F3ECDC' },
-  { name: 'Charcoal', hex: '#1C1C1E' },
-  { name: 'Slate', hex: '#64748B' },
+  { name: 'Wine', hex: '#722F37' },
+  { name: 'Deep Green', hex: '#2F5A3A' },
+  { name: 'Gray', hex: '#64748B' },
   { name: 'Pure White', hex: '#FFFFFF' },
 ]
 
@@ -36,10 +32,10 @@ export function QRShowcase() {
             Sticker — 10 Colors
           </p>
           <h2 className="text-[28px] sm:text-[36px] md:text-[44px] font-extrabold text-[#0F172A] leading-[1.05] tracking-[-0.025em]">
-            매장 인테리어에 맞춰 컬러를 고르세요.
+            매장 분위기에 자연스럽게 녹아드는 컬러도 준비되어 있어요.
           </h2>
           <p className="mt-6 text-[15px] md:text-[17px] text-[#64748B] font-medium max-w-xl mx-auto leading-[1.7]">
-            한정식에는 네이비, 카페에는 크림, 모던 매장에는 차콜. 테이블 위 인테리어 소품처럼 어울리게.
+            한정식엔 네이비, 카페엔 크림, 모던 매장엔 차콜. 테이블 위 인테리어 소품처럼 어울리는 톤으로.
           </p>
         </motion.div>
 
@@ -60,13 +56,13 @@ export function QRShowcase() {
           />
         </motion.div>
 
-        {/* 컬러칩 그리드 */}
+        {/* 컬러칩 — 대표 5색 + 외 5가지 */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 md:mt-14 grid grid-cols-5 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-10 gap-2.5 sm:gap-3 md:gap-4"
+          className="mt-10 md:mt-14 flex items-center justify-center gap-3 md:gap-5 flex-wrap max-w-3xl mx-auto"
         >
           {COLORS.map((c, i) => (
             <motion.div
@@ -74,19 +70,19 @@ export function QRShowcase() {
               initial={{ opacity: 0, scale: 0.85 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.3 + i * 0.04 }}
-              className="group flex flex-col items-center gap-2"
+              transition={{ duration: 0.3, delay: 0.3 + i * 0.06 }}
+              className="group flex flex-col items-center gap-2.5"
             >
               <div
-                className="w-full aspect-square rounded-xl transition-transform duration-300 group-hover:scale-105"
+                className="w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] md:w-[104px] md:h-[104px] rounded-2xl transition-transform duration-300 group-hover:scale-105"
                 style={{
                   backgroundColor: c.hex,
                   boxShadow: c.hex.toLowerCase() === '#ffffff'
-                    ? '0 0 0 1px rgba(15,23,42,0.08), 0 4px 12px rgba(15,23,42,0.05)'
-                    : '0 6px 16px rgba(15,23,42,0.12)',
+                    ? '0 0 0 1px rgba(15,23,42,0.08), 0 6px 16px rgba(15,23,42,0.06)'
+                    : '0 8px 20px rgba(15,23,42,0.14)',
                 }}
               />
-              <span className="text-[11px] md:text-[12px] font-semibold text-[#475569] text-center leading-tight">
+              <span className="text-[12px] md:text-[13px] font-semibold text-[#475569] text-center leading-tight">
                 {c.name}
               </span>
             </motion.div>

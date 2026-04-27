@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<title>Stats</title>
+<style>
+  @font-face { font-family: 'Pretendard'; font-display: swap; }
+
+  html { font-size: 17px; }
+  @media (min-width: 768px) { html { font-size: 16px; } }
+
+  html, body {
+    overflow: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "tnum";
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand:      #1A5DF7;
+    --accent-blue:#7CA8FF;
+    --ink:        #0A0F1C;
+    --font-base:  'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ease-expo:  cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
+  body { margin: 0; font-family: var(--font-base); background: var(--ink); }
+
+  .section {
+    padding: 96px 0;
+    background: var(--ink);
+  }
+  @media (min-width: 768px) { .section { padding: 128px 0; } }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  @media (min-width: 768px) { .container { padding: 0 48px; } }
+
+  /* Header */
+  .header {
+    display: grid;
+    gap: 32px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  @media (min-width: 768px) {
+    .header { grid-template-columns: 1.5fr 1fr; gap: 64px; margin-bottom: 80px; }
+  }
+
+  .header-left {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+  }
+  .header-left.in-view { opacity: 1; transform: translateY(0); }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .heading {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .header-right {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-expo) 0.15s;
+  }
+  @media (min-width: 768px) { .header-right { font-size: 15px; } }
+  .header-right.in-view { opacity: 1; }
+
+  /* Stats grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .stat-item {
+    background: var(--ink);
+    padding: 32px 0;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+  }
+  @media (min-width: 768px) { .stat-item { padding: 40px 24px; } }
+  .stat-item.in-view { opacity: 1; transform: translateY(0); }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  @media (min-width: 768px) { .stat-label { font-size: 13px; } }
+
+  .stat-value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .stat-value {
+    font-size: 44px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    line-height: 0.9;
+  }
+  @media (min-width: 768px) { .stat-value { font-size: 72px; } }
+
+  .stat-unit {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+  }
+  @media (min-width: 768px) { .stat-unit { font-size: 22px; } }
+
+  .stat-desc {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header-left, .header-right, .stat-item { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="section" id="stats">
+  <div class="container">
+
+    <div class="header">
+      <div class="header-left" id="stats-header-left">
+        <p class="eyebrow">What you get</p>
+        <h2 class="heading">모든 조건을 투명하게.</h2>
+      </div>
+      <p class="header-right" id="stats-header-right">
+        숨겨진 비용 없고, 약정도 없습니다. 주문이 발생한 건만큼만 수수료가 발생하는 단순한 구조입니다.
+      </p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-item" style="transition-delay: 0s;">
+        <p class="stat-label">도입비·월 고정비</p>
+        <div class="stat-value-row">
+          <span class="stat-value">0</span>
+          <span class="stat-unit">원</span>
+        </div>
+        <p class="stat-desc">설치·기기·스티커·배송 모두 무료</p>
+      </div>
+
+      <div class="stat-item" style="transition-delay: 0.08s;">
+        <p class="stat-label">지원 언어</p>
+        <div class="stat-value-row">
+          <span class="stat-value">32</span>
+          <span class="stat-unit">개국</span>
+        </div>
+        <p class="stat-desc">영·중·일·베·태·러·인니 외 포함</p>
+      </div>
+
+      <div class="stat-item" style="transition-delay: 0.16s;">
+        <p class="stat-label">약정·해지 수수료</p>
+        <div class="stat-value-row">
+          <span class="stat-value">0</span>
+          <span class="stat-unit">원</span>
+        </div>
+        <p class="stat-desc">언제든 해지, 스티커 반납 의무 없음</p>
+      </div>
+
+      <div class="stat-item" style="transition-delay: 0.24s;">
+        <p class="stat-label">평균 도입 소요</p>
+        <div class="stat-value-row">
+          <span class="stat-value">1~3</span>
+          <span class="stat-unit">일</span>
+        </div>
+        <p class="stat-desc">신청 승인 후 설치·등록까지</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.header-left, .header-right, .stat-item').forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+  document.querySelectorAll('#stats-header-left, #stats-header-right').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('.stat-item').forEach(function (el) { io.observe(el); });
+  setTimeout(function () {
+    document.querySelectorAll('.header-left, .header-right, .stat-item').forEach(function (el) {
+      if (!el.classList.contains('in-view')) el.classList.add('in-view');
+    });
+  }, 800);
+})();
+</script>
+
+</body>
+</html>
+<!-- 권장 iframe 높이: 데스크톱 ~520px / 모바일 ~800px -->

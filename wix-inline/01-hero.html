@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<title>Hero</title>
+<style>
+  @font-face { font-family: 'Pretendard'; font-display: swap; }
+
+  html { font-size: 17px; }
+  @media (min-width: 768px) { html { font-size: 16px; } }
+
+  html, body {
+    overflow: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "tnum";
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand:        #1A5DF7;
+    --brand-hover:  #1549D4;
+    --accent-blue:  #7FB3FF;
+    --ink:          #0A0F1C;
+    --font-base:    'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ease-expo:    cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
+  body { margin: 0; font-family: var(--font-base); background: var(--ink); }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  @media (min-width: 768px) { .hero { min-height: 92vh; } }
+
+  /* Background image — no parallax */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+  }
+
+  /* Mobile gradient: top→bottom */
+  .hero-overlay-mobile {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg,
+      rgba(10,15,28,0.85) 0%,
+      rgba(10,15,28,0.55) 40%,
+      rgba(10,15,28,0.30) 65%,
+      rgba(10,15,28,0.85) 100%);
+  }
+  /* Desktop gradient: left→right */
+  .hero-overlay-desktop {
+    display: none;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg,
+      rgba(10,15,28,0.88) 0%,
+      rgba(10,15,28,0.70) 25%,
+      rgba(10,15,28,0.35) 55%,
+      rgba(10,15,28,0.00) 75%);
+  }
+  @media (min-width: 768px) {
+    .hero-overlay-mobile { display: none; }
+    .hero-overlay-desktop { display: block; }
+  }
+  /* Bottom fade — connects to next section */
+  .hero-fade-bottom {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 160px;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent 0%, rgba(10,15,28,0.5) 100%);
+  }
+  @media (min-width: 768px) { .hero-fade-bottom { height: 192px; } }
+
+  /* Content container */
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 112px 24px 64px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .container { padding: 144px 48px 96px; min-height: 92vh; }
+  }
+  @media (min-width: 768px) { .container { padding: 144px 48px 96px; } }
+
+  .content {
+    max-width: 672px;
+  }
+
+  .content > * {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+    transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo), filter 0.6s var(--ease-expo);
+  }
+  .content.in-view > *:nth-child(1) { transition-delay: 0s; }
+  .content.in-view > *:nth-child(2) { transition-delay: 0.08s; }
+  .content.in-view > *:nth-child(3) { transition-delay: 0.16s; }
+  .content.in-view > *:nth-child(4) { transition-delay: 0.24s; }
+  .content.in-view > * {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* Headline */
+  h1 {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.028em;
+    color: #fff;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  }
+  h1 .accent { color: var(--accent-blue); }
+
+  /* Checklist */
+  .checklist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin: 32px 0 36px;
+    list-style: none;
+  }
+  .checklist li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  @media (min-width: 768px) { .checklist li { font-size: 15px; } }
+  .checklist svg {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+  }
+
+  /* Buttons */
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  @media (min-width: 768px) { .actions { flex-direction: row; } }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 60px;
+    padding: 0 32px;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 0;
+  }
+  .btn-primary {
+    background: var(--brand);
+    color: #fff;
+    padding: 0 32px 0 36px;
+    box-shadow: 0 12px 36px rgba(26,93,247,0.5);
+  }
+  .btn-primary:hover {
+    background: var(--brand-hover);
+    box-shadow: 0 16px 44px rgba(26,93,247,0.6);
+  }
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-primary svg {
+    width: 19px;
+    height: 19px;
+    transition: transform 0.2s ease;
+  }
+  .btn-primary:hover svg { transform: translateX(2px); }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.20);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.20);
+    border-color: rgba(255,255,255,0.35);
+  }
+  .btn-secondary:active { transform: scale(0.97); }
+
+  .disclaimer {
+    margin-top: 20px;
+    color: rgba(255,255,255,0.60);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .content > * {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="https://zivo-qrlanding.netlify.app/images/hero.jpg" alt=""
+         loading="eager" fetchpriority="high">
+  </div>
+  <div class="hero-overlay-mobile" aria-hidden="true"></div>
+  <div class="hero-overlay-desktop" aria-hidden="true"></div>
+  <div class="hero-fade-bottom" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="content">
+      <h1>
+        외국인 관광객 1,800만 시대,<br>
+        <span class="accent">한국 관광은 지금이 시작입니다.</span>
+      </h1>
+
+      <ul class="checklist">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          월 고정비 0원
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          주문 있을 때만 수수료
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          32개국어 자동 번역
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          1~3일 내 도입
+        </li>
+      </ul>
+
+      <div class="actions">
+        <a href="javascript:void(0)" class="btn btn-primary" aria-hidden="true" tabindex="-1">
+          무료 도입 신청하기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="#solution" target="_top" class="btn btn-secondary">
+          서비스 살펴보기
+        </a>
+      </div>
+
+      <p class="disclaimer">* 승인까지 평균 1~3 영업일 소요</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var content = document.querySelector('.content');
+  if (!content) return;
+  if (!('IntersectionObserver' in window)) {
+    content.classList.add('in-view');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  io.observe(content);
+  /* 600ms safety */
+  setTimeout(function () {
+    if (!content.classList.contains('in-view')) content.classList.add('in-view');
+  }, 600);
+})();
+</script>
+
+</body>
+</html>
+<!-- 권장 iframe 높이: 데스크톱 ~720px / 모바일 ~640px -->

@@ -82,7 +82,7 @@ export function WideBreak({ variant }: WideBreakProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.08 }}
-          className="text-[30px] sm:text-[42px] md:text-[54px] font-extrabold text-white leading-[1.15] tracking-[-0.02em] max-w-3xl mx-auto drop-shadow-[0_2px_16px_rgba(0,0,0,0.4)]"
+          className="text-[28px] sm:text-[40px] md:text-[52px] font-extrabold text-white leading-[1.15] tracking-[-0.02em] max-w-3xl mx-auto drop-shadow-[0_2px_16px_rgba(0,0,0,0.4)]"
         >
           {c.title}
         </motion.h2>
@@ -92,7 +92,7 @@ export function WideBreak({ variant }: WideBreakProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.18 }}
-          className="mt-6 text-[16px] md:text-[19px] text-white/85 font-medium max-w-xl mx-auto leading-[1.6]"
+          className="mt-6 text-[16px] md:text-[18px] text-white/85 font-medium max-w-xl mx-auto leading-[1.6]"
         >
           {c.sub}
         </motion.p>

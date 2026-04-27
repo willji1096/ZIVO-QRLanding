@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<title>How It Works</title>
+<style>
+  @font-face { font-family: 'Pretendard'; font-display: swap; }
+
+  html { font-size: 17px; }
+  @media (min-width: 768px) { html { font-size: 16px; } }
+
+  html, body {
+    overflow: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "tnum";
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand:       #1A5DF7;
+    --brand-hover: #1549D4;
+    --accent-blue: #7CA8FF;
+    --slate-900:   #0F172A;
+    --slate-700:   #334155;
+    --slate-600:   #475569;
+    --slate-500:   #64748B;
+    --slate-400:   #94A3B8;
+    --slate-300:   #CBD5E1;
+    --font-base:   'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ease-expo:   cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
+  body { margin: 0; font-family: var(--font-base); background: #fff; }
+
+  .section {
+    padding: 80px 0;
+    background: #fff;
+  }
+  @media (min-width: 768px) { .section { padding: 112px 0; } }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  @media (min-width: 768px) { .container { padding: 0 48px; } }
+
+  /* Header */
+  .section-intro {
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
+  }
+  @media (min-width: 768px) { .section-intro { margin-bottom: 80px; } }
+  .section-intro.in-view { opacity: 1; transform: translateY(0); }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--slate-400);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .heading {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    color: var(--slate-900);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .heading-sub {
+    margin-top: 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--slate-500);
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) { .heading-sub { font-size: 17px; } }
+
+  /* Steps */
+  .steps { display: flex; flex-direction: column; }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+  }
+  @media (min-width: 768px) { .step { gap: 40px; } }
+  .step.in-view { opacity: 1; transform: translateY(0); }
+  .step:not(:last-child) { padding-bottom: 48px; }
+  @media (min-width: 768px) { .step:not(:last-child) { padding-bottom: 56px; } }
+
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(26,93,247,0.3);
+    flex-shrink: 0;
+  }
+  @media (min-width: 768px) { .step-num { width: 64px; height: 64px; } }
+  .step-num span {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+  }
+  @media (min-width: 768px) { .step-num span { font-size: 28px; } }
+
+  .step-connector {
+    width: 2px;
+    flex: 1;
+    margin-top: 16px;
+    background: linear-gradient(180deg, rgba(26,93,247,0.3) 0%, rgba(26,93,247,0.1) 60%, transparent 100%);
+  }
+
+  .step-content { flex: 1; padding-top: 4px; padding-bottom: 8px; }
+
+  .step-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--slate-900);
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  @media (min-width: 768px) { .step-title { font-size: 26px; } }
+
+  .step-desc {
+    font-size: 16px;
+    color: var(--slate-600);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) { .step-desc { font-size: 17px; } }
+
+  .step-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .step-detail { font-size: 13px; color: var(--brand); font-weight: 600; }
+  .step-dot {
+    display: none;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--slate-300);
+  }
+  .step-time { font-size: 13px; color: var(--slate-400); font-weight: 500; }
+
+  /* CTA button */
+  .cta-btn-wrap {
+    margin-top: 48px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s var(--ease-expo) 0.1s, transform 0.5s var(--ease-expo) 0.1s;
+  }
+  @media (min-width: 768px) { .cta-btn-wrap { margin-top: 64px; } }
+  .cta-btn-wrap.in-view { opacity: 1; transform: translateY(0); }
+
+  /* Main grid — left text + right QR cards */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .main-grid {
+      grid-template-columns: 1fr auto;
+      gap: 80px;
+    }
+  }
+
+  /* QR card stack */
+  .qr-stack-wrap {
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 768px) {
+    .qr-stack-wrap { display: flex; }
+  }
+  .qr-stack {
+    position: relative;
+    width: 420px;
+    height: 560px;
+  }
+
+  .qr-card {
+    position: absolute;
+    width: 252px;
+    height: 394px;
+    border-radius: 26px;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  .qr-card .qr-logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1px;
+  }
+  .qr-card .qr-sub {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .qr-card .qr-code {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .qr-card .qr-bottom {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+  .qr-code-inner {
+    width: 88%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    padding: 9px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 2px;
+  }
+  .qr-cell {
+    border-radius: 1.5px;
+  }
+  .qr-card-highlight {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 112px;
+    pointer-events: none;
+  }
+
+  /* Idle float keyframes */
+  @keyframes qr-float-front  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes qr-float-middle { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes qr-float-back   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+  /* Outer wrapper: position + filter + idle float animation (translateY) */
+  .qr-card-outer {
+    position: absolute;
+    will-change: transform;
+  }
+  /* Inner: rotation + mouse tilt — CSS vars driven */
+  .qr-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  /* BACK — charcoal */
+  .qr-card-outer.back  {
+    top: 108px; left: 126px;
+    filter: drop-shadow(0 18px 28px rgba(15,23,42,0.16)) drop-shadow(0 4px 10px rgba(0,0,0,0.08));
+    animation: qr-float-back 5.2s ease-in-out 0.6s infinite;
+  }
+  .qr-card-outer.back  .qr-card-inner {
+    transform:
+      translate3d(calc(var(--mx, 0) * 4.5px), calc(var(--my, 0) * 2.7px), 0)
+      rotateX(calc(10deg + var(--my, 0) * -4.5deg))
+      rotateY(calc(-18deg + var(--mx, 0) * 7.2deg))
+      rotateZ(2deg);
+  }
+
+  /* MIDDLE — cream */
+  .qr-card-outer.middle {
+    top: 68px; left: 68px;
+    filter: drop-shadow(0 22px 34px rgba(15,23,42,0.16)) drop-shadow(0 6px 14px rgba(0,0,0,0.08));
+    animation: qr-float-middle 4.9s ease-in-out 0.3s infinite;
+  }
+  .qr-card-outer.middle .qr-card-inner {
+    transform:
+      translate3d(calc(var(--mx, 0) * 7.5px), calc(var(--my, 0) * 4.5px), 0)
+      rotateX(calc(12deg + var(--my, 0) * -7.5deg))
+      rotateY(calc(-14deg + var(--mx, 0) * 12deg))
+      rotateZ(1.5deg);
+  }
+
+  /* FRONT — blue */
+  .qr-card-outer.front {
+    top: 32px; left: 10px;
+    filter: drop-shadow(0 22px 32px rgba(26,93,247,0.18)) drop-shadow(0 8px 14px rgba(15,23,42,0.08));
+    animation: qr-float-front 4.6s ease-in-out 0s infinite;
+  }
+  .qr-card-outer.front .qr-card-inner {
+    transform:
+      translate3d(calc(var(--mx, 0) * 10px), calc(var(--my, 0) * 6px), 0)
+      rotateX(calc(12deg + var(--my, 0) * -10deg))
+      rotateY(calc(-10deg + var(--mx, 0) * 16deg))
+      rotateZ(1deg);
+  }
+
+  /* Card visual reset (positioning moved to outer) */
+  .qr-card.back, .qr-card.middle, .qr-card.front {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    filter: none;
+  }
+  .qr-card.back   { background: #1C1C1E; color: #fff; }
+  .qr-card.back .qr-sub { color: rgba(255,255,255,0.70); }
+  .qr-card.back .qr-bottom { color: rgba(255,255,255,0.65); }
+  .qr-card.back .qr-card-highlight {
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  /* Card 2 — middle cream */
+  .qr-card.middle {
+    background: #F3ECDC;
+    color: #64748B;
+    border: 1px solid #E7DFCB;
+  }
+  .qr-card.middle .qr-sub { color: #64748B; }
+  .qr-card.middle .qr-bottom { color: #64748B; }
+  .qr-card.middle .qr-logo .blue { color: #1A5DF7; }
+  .qr-card.middle .qr-logo .yellow { color: #FFB800; }
+  .qr-card.middle .qr-card-highlight {
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  /* Card 3 — front blue */
+  .qr-card.front {
+    background: #1A5DF7;
+    color: #fff;
+  }
+  .qr-card.front .qr-sub { color: rgba(255,255,255,0.90); }
+  .qr-card.front .qr-bottom { color: rgba(255,255,255,0.85); }
+  .qr-card.front .qr-card-highlight {
+    background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  .qr-card .qr-logo .yellow { color: #FFB800; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 56px;
+    padding: 0 28px 0 32px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgba(26,93,247,0.35);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover { background: var(--brand-hover); }
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-primary svg {
+    width: 19px;
+    height: 19px;
+    transition: transform 0.2s ease;
+  }
+  .btn-primary:hover svg { transform: translateX(2px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-intro, .step, .cta-btn-wrap { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="section" id="how-it-works">
+  <div class="container">
+   <div class="main-grid">
+    <div class="main-left">
+
+    <div class="section-intro" id="hiw-intro">
+      <p class="eyebrow">How it works</p>
+      <h2 class="heading">3단계, 일주일이면 매장이 글로벌이 됩니다.</h2>
+      <p class="heading-sub">복잡한 설치 과정 없이, 신청부터 운영까지 평균 1주일.</p>
+    </div>
+
+    <div class="steps">
+
+      <!-- Step 1 -->
+      <div class="step" id="hiw-step-1">
+        <div class="step-left">
+          <div class="step-num" aria-hidden="true"><span>1</span></div>
+          <div class="step-connector" aria-hidden="true"></div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title">도입 신청</h3>
+          <p class="step-desc">아래 신청 폼에 매장명과 연락처만 남기세요. 별도 서류·방문 없이 1~3 영업일 내 담당자가 직접 연락드려 승인을 도와드립니다.</p>
+          <div class="step-meta">
+            <span class="step-detail">필요 정보: 매장명 · 대표자 연락처 · 업종</span>
+            <span class="step-dot" aria-hidden="true"></span>
+            <span class="step-time">소요: 1~3 영업일</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step" id="hiw-step-2">
+        <div class="step-left">
+          <div class="step-num" aria-hidden="true"><span>2</span></div>
+          <div class="step-connector" aria-hidden="true"></div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title">QR 스티커 수령 · 메뉴 등록</h3>
+          <p class="step-desc">승인이 완료되면 매장 브랜드와 맞는 QR 스티커를 제작·배송해드립니다. 동시에 사장님이 한국어로 메뉴를 등록하시면 32개국어로 자동 번역됩니다.</p>
+          <div class="step-meta">
+            <span class="step-detail">QR 스티커 디자인·제작·배송 모두 포함 (추가 비용 없음)</span>
+            <span class="step-dot" aria-hidden="true"></span>
+            <span class="step-time">소요: 2~3일</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step" id="hiw-step-3">
+        <div class="step-left">
+          <div class="step-num" aria-hidden="true"><span>3</span></div>
+        </div>
+        <div class="step-content">
+          <h3 class="step-title">테이블에 붙이면 끝</h3>
+          <p class="step-desc">받으신 QR 스티커를 테이블에 붙이는 순간 매장은 글로벌이 됩니다. 외국인 손님은 모국어로 메뉴를 보고, 직접 주문하고, 결제까지 혼자 마칩니다.</p>
+          <div class="step-meta">
+            <span class="step-detail">별도 기기·POS 교체 불필요. 기존 스마트폰·PC로 관리</span>
+            <span class="step-dot" aria-hidden="true"></span>
+            <span class="step-time">완료 즉시 운영 가능</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-btn-wrap" id="hiw-cta">
+      <a href="javascript:void(0)" class="btn-primary" aria-hidden="true" tabindex="-1">
+        지금 바로 신청하기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+    </div><!-- /.main-left -->
+
+    <!-- Right — QR card stack (lg+) -->
+    <div class="qr-stack-wrap" aria-hidden="true">
+      <div class="qr-stack" id="qr-stack" style="perspective:1400px; perspective-origin:50% 45%;">
+        <!-- Back — charcoal -->
+        <div class="qr-card-outer back">
+          <div class="qr-card-inner">
+            <div class="qr-card back">
+              <div class="qr-card-highlight"></div>
+              <span class="qr-logo"><span>z</span><span>i</span><span class="yellow">v</span><span>o</span></span>
+              <span class="qr-sub">Scan to Order</span>
+              <div class="qr-code">
+                <div class="qr-code-inner" style="background:#FFFFFF;"></div>
+              </div>
+              <span class="qr-bottom">외국인 전용</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle — cream -->
+        <div class="qr-card-outer middle">
+          <div class="qr-card-inner">
+            <div class="qr-card middle">
+              <div class="qr-card-highlight"></div>
+              <span class="qr-logo"><span class="blue">z</span><span class="blue">i</span><span class="yellow">v</span><span class="blue">o</span></span>
+              <span class="qr-sub">Scan to Order</span>
+              <div class="qr-code">
+                <div class="qr-code-inner" style="background:#FFFFFF;"></div>
+              </div>
+              <span class="qr-bottom">외국인 전용</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Front — blue -->
+        <div class="qr-card-outer front">
+          <div class="qr-card-inner">
+            <div class="qr-card front">
+              <div class="qr-card-highlight"></div>
+              <span class="qr-logo"><span>z</span><span>i</span><span class="yellow">v</span><span>o</span></span>
+              <span class="qr-sub">Scan to Order</span>
+              <div class="qr-code">
+                <div class="qr-code-inner" style="background:#FFFFFF;"></div>
+              </div>
+              <span class="qr-bottom">외국인 전용</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   </div><!-- /.main-grid -->
+  </div>
+</section>
+
+<script>
+/* QR stack — mouse tilt */
+(function () {
+  var stack = document.getElementById('qr-stack');
+  if (!stack) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+  function loop() {
+    cx += (tx - cx) * 0.12;
+    cy += (ty - cy) * 0.12;
+    stack.style.setProperty('--mx', cx.toFixed(3));
+    stack.style.setProperty('--my', cy.toFixed(3));
+    if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
+      raf = requestAnimationFrame(loop);
+    } else {
+      raf = null;
+    }
+  }
+  function start() { if (!raf) raf = requestAnimationFrame(loop); }
+  stack.addEventListener('mousemove', function (e) {
+    var r = stack.getBoundingClientRect();
+    tx = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
+    ty = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height) * 2 - 1));
+    start();
+  });
+  stack.addEventListener('mouseleave', function () { tx = 0; ty = 0; start(); });
+})();
+
+/* QR pattern fill */
+(function () {
+  var QR_PATTERN = [
+    1,1,1,0,1,0,1,1,1,
+    1,0,1,1,0,1,1,0,1,
+    1,1,1,0,1,0,1,1,1,
+    0,1,0,1,1,0,1,0,1,
+    1,0,1,0,1,1,0,1,0,
+    0,1,1,1,0,1,1,0,1,
+    1,1,1,0,1,0,1,1,1,
+    1,0,1,1,0,1,0,0,1,
+    1,1,1,0,1,1,1,0,1
+  ];
+  document.querySelectorAll('.qr-code-inner').forEach(function (host) {
+    var card = host.closest('.qr-card');
+    var color = '#0F172A';
+    QR_PATTERN.forEach(function (filled) {
+      var cell = document.createElement('div');
+      cell.className = 'qr-cell';
+      cell.style.backgroundColor = filled ? color : color + '14';
+      host.appendChild(cell);
+    });
+  });
+})();
+
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.section-intro, .step, .cta-btn-wrap').forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  var targets = document.querySelectorAll('#hiw-intro, #hiw-step-1, #hiw-step-2, #hiw-step-3, #hiw-cta');
+  targets.forEach(function (el, i) {
+    el.style.transitionDelay = (i * 0.1) + 's';
+    io.observe(el);
+  });
+
+  setTimeout(function () {
+    document.querySelectorAll('.section-intro, .step, .cta-btn-wrap').forEach(function (el) {
+      if (!el.classList.contains('in-view')) el.classList.add('in-view');
+    });
+  }, 900);
+})();
+</script>
+
+</body>
+</html>
+<!-- 권장 iframe 높이: 데스크톱 ~820px / 모바일 ~1100px -->

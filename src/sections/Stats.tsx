@@ -11,7 +11,7 @@ export function Stats() {
   return (
     <section className="py-24 sm:py-28 md:py-32 bg-[#0A0F1C]">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-[1.5fr_1fr] gap-8 md:gap-16 items-end mb-14 md:mb-20 pb-8 border-b border-white/10">
+        <div className="grid md:grid-cols-[1.5fr_1fr] gap-8 md:gap-16 items-end mb-14 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -50,10 +50,10 @@ export function Stats() {
                 {s.label}
               </p>
               <div className="flex items-baseline gap-2">
-                <span className="text-[56px] sm:text-[68px] md:text-[80px] font-extrabold text-white tracking-[-0.04em] tabular-nums leading-[0.9]">
+                <span className="text-[44px] sm:text-[60px] md:text-[72px] font-extrabold text-white tracking-[-0.04em] tabular-nums leading-[0.9]">
                   {s.value}
                 </span>
-                <span className="text-[20px] md:text-[24px] font-bold text-white/60">
+                <span className="text-[16px] md:text-[22px] font-bold text-white/60">
                   {s.unit}
                 </span>
               </div>

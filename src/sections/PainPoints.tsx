@@ -2,12 +2,21 @@ import { motion } from 'motion/react'
 
 const CARDS = [
   {
+    label: 'ZIVO의 답',
+    title: '도입비 0원으로,\n외국인 매출이 추가됩니다.',
+    desc: '도입·설치비, 월 고정비 모두 0원. 주문이 발생한 만큼만 수수료가 부과됩니다. 부담 없이 외국인 매출을 추가 수익으로 만드세요.',
+    stat: '0',
+    unit: '원',
+    statDesc: '도입·설치·월 고정비 모두 0원 — 주문당 후불 과금',
+    accent: '#1A5DF7',
+  },
+  {
     label: '기회 손실',
     title: '메뉴가 안 읽혀,\n문 앞에서 돌아가는 손님',
-    desc: '외국인은 메뉴가 모국어로 보이지 않으면 그냥 옆\u00A0가게로 갑니다. 영어 메뉴판 한\u00A0장으로는 점점 부족합니다.',
-    stat: '1,630',
+    desc: '외국인은 메뉴가 모국어로 보이지 않으면 그냥 옆 가게로 갑니다. 영어 메뉴판 한 장으로는 점점 부족합니다.',
+    stat: '2,000',
     unit: '만 명',
-    statDesc: '2024년 한국 방문 외국인 수 (한국관광공사)',
+    statDesc: '2026년 한국 방문 외국인 예상 수치 (한국관광공사)',
     accent: '#1A5DF7',
   },
   {
@@ -35,7 +44,7 @@ export function PainPoints() {
     <section className="py-24 sm:py-28 md:py-32 bg-white">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* 에디토리얼 헤더 */}
-        <div className="grid md:grid-cols-[1.6fr_1fr] gap-8 md:gap-16 items-end mb-16 md:mb-24 pb-8 border-b border-[#E2E8F0]">
+        <div className="grid md:grid-cols-[1.6fr_1fr] gap-8 md:gap-16 items-end mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +69,7 @@ export function PainPoints() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-0 md:gap-0 border-t border-l border-[#F1F5F9]">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#E2E8F0]">
           {CARDS.map((card, i) => (
             <motion.div
               key={card.label}
@@ -68,7 +77,7 @@ export function PainPoints() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative p-8 md:p-10 border-b border-r border-[#F1F5F9] flex flex-col"
+              className="relative p-7 md:p-8 border-b border-r border-[#E2E8F0] flex flex-col"
             >
               {/* 카테고리 라벨 */}
               <div className="flex items-baseline gap-3 mb-5">
@@ -80,22 +89,22 @@ export function PainPoints() {
                 </span>
               </div>
 
-              <h3 className="text-[22px] md:text-[26px] font-extrabold text-[#0F172A] leading-[1.3] mb-5 tracking-[-0.015em] whitespace-pre-line">
+              <h3 className="text-[20px] md:text-[22px] font-extrabold text-[#0F172A] leading-[1.3] mb-5 tracking-[-0.015em] whitespace-pre-line">
                 {card.title}
               </h3>
-              <p className="text-[15px] text-[#64748B] leading-[1.75] mb-auto">
+              <p className="text-[14px] md:text-[15px] text-[#64748B] leading-[1.75] mb-auto">
                 {card.desc}
               </p>
 
-              <div className="mt-10 pt-6 border-t border-[#F1F5F9]">
+              <div className="mt-6 pt-4 border-t border-[#F1F5F9]">
                 <div className="flex items-baseline gap-1">
                   <span
-                    className="text-[48px] md:text-[60px] font-extrabold tracking-[-0.04em] tabular-nums leading-[0.9]"
+                    className="text-[34px] md:text-[40px] font-extrabold tracking-[-0.04em] tabular-nums leading-[0.9]"
                     style={{ color: card.accent }}
                   >
                     {card.stat}
                   </span>
-                  <span className="text-[20px] md:text-[22px] font-bold" style={{ color: card.accent }}>
+                  <span className="text-[15px] md:text-[16px] font-bold" style={{ color: card.accent }}>
                     {card.unit}
                   </span>
                 </div>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<title>WideBreak — Sticker</title>
+<style>
+  @font-face { font-family: 'Pretendard'; font-display: swap; }
+
+  html { font-size: 17px; }
+  @media (min-width: 768px) { html { font-size: 16px; } }
+
+  html, body {
+    overflow: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "tnum";
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent-blue: #7CA8FF;
+    --ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
+    --font-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
+  body { margin: 0; font-family: var(--font-base); }
+
+  .widebreak {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .widebreak-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .widebreak-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+  }
+  .widebreak-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,15,28,0.55) 0%, rgba(10,15,28,0.35) 45%, rgba(10,15,28,0.65) 100%);
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 96px 24px;
+    text-align: center;
+  }
+  @media (min-width: 768px) { .content { padding: 128px 48px; } }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+  }
+  @media (min-width: 768px) { .eyebrow { font-size: 13px; } }
+
+  .heading {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 768px;
+    margin: 0 auto;
+    filter: drop-shadow(0 2px 16px rgba(0,0,0,0.4));
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-expo) 0.08s, transform 0.6s var(--ease-expo) 0.08s;
+  }
+
+  .sub {
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s var(--ease-expo) 0.18s, transform 0.5s var(--ease-expo) 0.18s;
+  }
+  @media (min-width: 768px) { .sub { font-size: 18px; } }
+
+  .content.in-view .eyebrow,
+  .content.in-view .heading,
+  .content.in-view .sub {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow, .heading, .sub { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="widebreak">
+  <div class="widebreak-bg" aria-hidden="true">
+    <img src="https://zivo-qrlanding.netlify.app/images/wide-sticker.jpg"
+         alt="테이블 위 ZIVO QR 스탠드 클로즈업" loading="lazy">
+    <div class="widebreak-overlay"></div>
+  </div>
+
+  <div class="content" id="wb-content">
+    <p class="eyebrow">Only one sticker. That's it.</p>
+    <h2 class="heading">QR 스티커 한&nbsp;장으로 매장은 글로벌이 됩니다</h2>
+    <p class="sub">설치도, 기기도, 교체도 없습니다.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var content = document.getElementById('wb-content');
+  if (!content) return;
+  if (!('IntersectionObserver' in window)) {
+    content.classList.add('in-view');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+  io.observe(content);
+  setTimeout(function () {
+    if (!content.classList.contains('in-view')) content.classList.add('in-view');
+  }, 800);
+})();
+</script>
+
+</body>
+</html>
+<!-- 권장 iframe 높이: 데스크톱 ~480px / 모바일 ~420px -->

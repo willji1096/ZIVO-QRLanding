@@ -6,9 +6,19 @@ import {
 
 const FEATURES = [
   {
+    icon: CreditCard,
+    title: '주문당 후불 과금',
+    desc: '월 고정비 0원. 실제 주문이 발생한 건만큼만 수수료를 지불. 주문 없으면 비용도 없습니다.',
+  },
+  {
+    icon: BarChart3,
+    title: '매출·정산 리포트',
+    desc: '일·월별 매출, 인기 메뉴, 시간대별 주문 패턴. 시즌 메뉴와 재고 계획이 쉬워집니다.',
+  },
+  {
     icon: Languages,
     title: '32개국어 자동 번역',
-    desc: '한국어로 한\u00A0번 등록하면 영·중·일·베·태·러·인니 등 32개국어로 자동 번역됩니다.',
+    desc: '한국어로 한 번 등록하면 영·중·일·베·태·러·인니 등 32개국어로 자동 번역됩니다.',
   },
   {
     icon: Smartphone,
@@ -31,19 +41,9 @@ const FEATURES = [
     desc: '테이블별 QR 매핑, 동시 다건 주문, 테이블 상태 실시간 확인. 홀 동선이 한눈에.',
   },
   {
-    icon: BarChart3,
-    title: '매출·정산 리포트',
-    desc: '일·월별 매출, 인기 메뉴, 시간대별 주문 패턴. 시즌 메뉴와 재고 계획이 쉬워집니다.',
-  },
-  {
     icon: Star,
     title: '리뷰 관리',
     desc: '외국인 리뷰도 한국어로 자동 번역되어 확인·답변 가능. 별점·사진 통합 관리.',
-  },
-  {
-    icon: CreditCard,
-    title: '주문당 후불 과금',
-    desc: '월 고정비 0원. 실제 주문이 발생한 건만큼만 수수료를 지불. 주문 없으면 비용도 없습니다.',
   },
   {
     icon: MapPin,
@@ -57,7 +57,7 @@ export function Features() {
     <section id="features" className="py-24 sm:py-28 md:py-32 bg-white">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* 에디토리얼 인트로 */}
-        <div className="grid md:grid-cols-[1.5fr_1fr] gap-8 md:gap-16 items-end mb-14 md:mb-20 pb-8 border-b border-[#E2E8F0]">
+        <div className="grid md:grid-cols-[1.5fr_1fr] gap-8 md:gap-16 items-end mb-14 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export function Features() {
         </div>
 
         {/* 피처 리스트 — 3×3 편집형 그리드, 구분선 중심 */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#F1F5F9]">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#E2E8F0]">
           {FEATURES.map((feat, i) => (
             <motion.div
               key={feat.title}
@@ -91,7 +91,7 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="group relative p-7 md:p-8 border-b border-r border-[#F1F5F9] hover:bg-[#F8FAFC] transition-[background-color] duration-200"
+              className="group relative p-7 md:p-8 border-b border-r border-[#E2E8F0] hover:bg-[#F8FAFC] transition-[background-color] duration-200"
             >
               <feat.icon size={22} strokeWidth={1.75} className="text-[#1A5DF7] mb-5" />
               <h3 className="text-[16px] md:text-[17px] font-bold text-[#0F172A] mb-2.5 leading-[1.35] tracking-[-0.01em]">

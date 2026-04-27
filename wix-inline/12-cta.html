@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<title>CTA</title>
+<style>
+  @font-face { font-family: 'Pretendard'; font-display: swap; }
+
+  html { font-size: 17px; }
+  @media (min-width: 768px) { html { font-size: 16px; } }
+
+  html, body {
+    overflow: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "tnum";
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand:       #1A5DF7;
+    --brand-hover: #1549D4;
+    --accent-blue: #60A5FA;
+    --font-base:   'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ease-expo:   cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
+  body { margin: 0; font-family: var(--font-base); background: #0F172A; }
+
+  .section {
+    padding: 64px 0;
+    background: #0F172A;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) { .section { padding: 96px 0; } }
+
+  .bg-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top right, rgba(26,93,247,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  @media (min-width: 768px) { .container { padding: 0 48px; } }
+
+  .grid {
+    display: grid;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (min-width: 768px) { .grid { gap: 56px; } }
+
+  /* 우측 폼은 Wix 네이티브 폼 사용 — 숨김 */
+  .right-col { display: none !important; }
+
+  /* Left */
+  .left-col {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
+  }
+  .left-col.in-view { opacity: 1; transform: translateY(0); }
+
+  .cta-heading {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .cta-heading .accent { color: var(--accent-blue); }
+
+  .cta-sub {
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 400px;
+  }
+  @media (min-width: 768px) { .cta-sub { font-size: 18px; } }
+
+  .check-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .check-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--brand);
+    flex-shrink: 0;
+  }
+  .check-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Right — Form */
+  .right-col {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-expo) 0.1s, transform 0.6s var(--ease-expo) 0.1s;
+  }
+  .right-col.in-view { opacity: 1; transform: translateY(0); }
+
+  .form-card {
+    padding: 32px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (min-width: 768px) { .form-card { padding: 40px; } }
+
+  .form-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-family: var(--font-base);
+    transition: border-color 0.15s ease;
+    width: 100%;
+  }
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus { border-color: var(--brand); outline: none; }
+  .form-input { height: 48px; padding: 0 16px; }
+  .form-select {
+    height: 48px;
+    padding: 0 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
+  .form-select option { background: #1E293B; color: #fff; }
+  .form-textarea { padding: 12px 16px; resize: none; }
+
+  .field-error {
+    font-size: 13px;
+    color: #f87171;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .submit-btn {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: 4px;
+    font-family: var(--font-base);
+  }
+  .submit-btn:hover { background: var(--brand-hover); }
+  .submit-btn:active { transform: scale(0.96); }
+  .submit-btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s ease;
+  }
+  .submit-btn:hover svg { transform: translateX(2px); }
+
+  .form-footnote {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    font-weight: 500;
+  }
+
+  /* Success state */
+  .success-card {
+    padding: 40px 32px 48px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    display: none;
+  }
+  .success-card.visible { display: block; }
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(34,197,94,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .success-icon svg { width: 28px; height: 28px; color: #4ade80; }
+  .success-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .success-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .left-col, .right-col { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="section" id="cta">
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="grid">
+
+      <!-- Left -->
+      <div class="left-col" id="cta-left">
+        <h2 class="cta-heading">
+          망설이는 사이,<br>
+          <span class="accent">외국인은 옆&nbsp;매장</span>에<br>
+          들어갑니다.
+        </h2>
+        <p class="cta-sub">
+          월 고정비 0원 · 주문당 후불. 잃을 것 없는 제안입니다. 지금&nbsp;신청하고 일주일 안에 첫 외국인 QR 주문을 받으세요.
+        </p>
+        <div class="check-list">
+          <div class="check-item">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="check-text">월 고정비 0원 · 주문당 후불 과금</span>
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="check-text">1~3일 내 세팅 완료</span>
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="check-text">32개국어 자동 번역</span>
+          </div>
+          <div class="check-item">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="check-text">ZIVO 앱 매장 노출 포함</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="right-col" id="cta-right">
+
+        <!-- Form -->
+        <div class="form-card" id="cta-form-card">
+          <h3 class="form-title">도입 신청</h3>
+
+          <form id="cta-form" novalidate>
+            <div style="display:flex;flex-direction:column;gap:20px;">
+
+              <div class="form-group">
+                <label class="form-label" for="storeName">매장명 *</label>
+                <input class="form-input" type="text" id="storeName" name="storeName" placeholder="예) 명동 불고기집" autocomplete="organization">
+                <span class="field-error" id="storeName-err">매장명을 입력해주세요</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact">연락처 *</label>
+                <input class="form-input" type="tel" id="contact" name="contact" placeholder="010-0000-0000" autocomplete="tel">
+                <span class="field-error" id="contact-err">연락처를 입력해주세요</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="category">업종</label>
+                <select class="form-select" id="category" name="category">
+                  <option value="">업종 선택</option>
+                  <option value="korean">한식</option>
+                  <option value="japanese">일식</option>
+                  <option value="chinese">중식</option>
+                  <option value="western">양식</option>
+                  <option value="cafe">카페·디저트</option>
+                  <option value="bar">주점·바</option>
+                  <option value="other">기타</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">기타 문의사항</label>
+                <textarea class="form-textarea" id="message" name="message" rows="3" placeholder="궁금하신 점이 있으면 남겨주세요"></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                도입 신청하기
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+
+              <p class="form-footnote">1~3 영업일 이내 담당자가 연락드립니다</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Success -->
+        <div class="success-card" id="cta-success" aria-live="polite">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 class="success-title">신청 완료</h3>
+          <p class="success-sub">1~3 영업일 이내 담당자가 연락드리겠습니다.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  /* Form submit */
+  var form = document.getElementById('cta-form');
+  var formCard = document.getElementById('cta-form-card');
+  var successCard = document.getElementById('cta-success');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var storeName = document.getElementById('storeName');
+      var contact = document.getElementById('contact');
+      var storeErr = document.getElementById('storeName-err');
+      var contactErr = document.getElementById('contact-err');
+      var valid = true;
+
+      if (!storeName.value.trim()) {
+        storeErr.style.display = 'block';
+        storeName.style.borderColor = '#f87171';
+        valid = false;
+      } else {
+        storeErr.style.display = 'none';
+        storeName.style.borderColor = '';
+      }
+
+      if (!contact.value.trim()) {
+        contactErr.style.display = 'block';
+        contact.style.borderColor = '#f87171';
+        valid = false;
+      } else {
+        contactErr.style.display = 'none';
+        contact.style.borderColor = '';
+      }
+
+      if (valid) {
+        formCard.style.display = 'none';
+        successCard.classList.add('visible');
+      }
+    });
+  }
+
+  /* Fade-in */
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.left-col, .right-col').forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  document.querySelectorAll('#cta-left, #cta-right').forEach(function (el) { io.observe(el); });
+  setTimeout(function () {
+    document.querySelectorAll('.left-col, .right-col').forEach(function (el) {
+      if (!el.classList.contains('in-view')) el.classList.add('in-view');
+    });
+  }, 900);
+})();
+</script>
+
+</body>
+</html>
+<!-- 권장 iframe 높이: 데스크톱 ~680px / 모바일 ~1100px -->

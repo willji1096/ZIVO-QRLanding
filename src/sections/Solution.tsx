@@ -25,9 +25,9 @@ const SOLUTIONS = [
     badge: 'QR Ordering',
     title: 'QR 스캔부터 주문 완료까지 1분',
     highlight: '1분',
-    description: '앱 설치도, 회원가입도 없습니다. 테이블 QR만 스캔하면 웹으로 바로 메뉴가 열리고, 옵션 선택·직원 호출·요청사항·결제·영수증까지 손님 혼자 처리합니다.',
+    description: '앱 설치 후 회원가입만 한 번. 그 뒤로는 테이블 QR만 스캔하면 메뉴 → 옵션 → 직원 호출 → 결제 → 영수증까지 손님이 혼자 끝냅니다.',
     features: [
-      '앱·회원가입 불필요 (PWA 웹)',
+      '앱 설치 + 회원가입 1회로 결제 정보 등록',
       '테이블 번호 자동 인식 · 직원 호출',
       '옵션(중량·가니쉬)·요청사항 지원',
       '주문번호·영수증 자동 발급',
@@ -89,10 +89,11 @@ export function Solution() {
             The Solution
           </p>
           <h2 className="text-[28px] sm:text-[36px] md:text-[44px] font-extrabold text-[#0F172A] leading-[1.05] tracking-[-0.025em]">
-            외국인 손님을 받는 데 필요한 모든 것이 한&nbsp;번에.
+            <span className="text-[#1A5DF7]">도입비용 0원, 월 고정비 0원.</span>
           </h2>
           <p className="mt-6 text-[15px] md:text-[17px] text-[#64748B] font-medium max-w-xl mx-auto leading-[1.7]">
-            도입비용 0원, 월 고정비 0원. 주문이 있을 때만 수수료가 발생합니다.
+            외국인 손님 메뉴부터 결제까지 필요한 모든 것이 한&nbsp;번에.<br />
+            <span className="text-[#94A3B8]">*주문이 있을 때만 수수료가 발생합니다.</span>
           </p>
         </motion.div>
 
@@ -115,7 +116,7 @@ export function Solution() {
                     {sol.badge}
                   </span>
                 </div>
-                <h3 className="text-[28px] sm:text-[34px] md:text-[42px] font-extrabold text-[#0F172A] leading-[1.2] tracking-[-0.02em]">
+                <h3 className="text-[28px] sm:text-[36px] md:text-[44px] font-extrabold text-[#0F172A] leading-[1.2] tracking-[-0.02em]">
                   {(() => {
                     const idx = sol.title.indexOf(sol.highlight)
                     if (idx === -1) return sol.title

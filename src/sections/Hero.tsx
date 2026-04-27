@@ -77,9 +77,9 @@ export function Hero() {
             variants={fadeUp}
             className="text-[40px] sm:text-[56px] md:text-[68px] lg:text-[80px] font-extrabold text-white leading-[1.08] tracking-[-0.028em] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.35)]"
           >
-            한국 관광은 지금이 피크.
+            외국인 관광객 1,800만 시대,
             <br />
-            <span className="text-[#7FB3FF]">외국인을 놓치는 매장만 뒤처집니다.</span>
+            <span className="text-[#7FB3FF]">한국 관광은 지금이 시작입니다.</span>
           </motion.h1>
 
           <motion.ul variants={fadeUp} className="flex flex-wrap gap-x-5 gap-y-2 mt-8 mb-9">

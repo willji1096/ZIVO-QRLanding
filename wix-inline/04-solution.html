@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<title>Solution</title>
+<style>
+  @font-face { font-family: 'Pretendard'; font-display: swap; }
+
+  html { font-size: 17px; }
+  @media (min-width: 768px) { html { font-size: 16px; } }
+
+  html, body {
+    overflow: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "tnum";
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand:       #1A5DF7;
+    --brand-hover: #1549D4;
+    --accent-blue: #7CA8FF;
+    --ink:         #0A0F1C;
+    --slate-900:   #0F172A;
+    --slate-700:   #334155;
+    --slate-600:   #475569;
+    --slate-500:   #64748B;
+    --slate-400:   #94A3B8;
+    --slate-200:   #E2E8F0;
+    --slate-100:   #F1F5F9;
+    --slate-50:    #F8FAFC;
+    --font-base:   'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ease-expo:   cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+
+  body { margin: 0; font-family: var(--font-base); background: var(--slate-50); }
+
+  /* ── Section ── */
+  .section {
+    padding: 80px 0;
+    background: var(--slate-50);
+  }
+  @media (min-width: 768px) { .section { padding: 112px 0; } }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  @media (min-width: 480px) { .container { padding: 0 24px; } }
+  @media (min-width: 768px) { .container { padding: 0 48px; } }
+
+  /* ── Intro ── */
+  .intro {
+    text-align: center;
+    margin-bottom: 64px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
+  }
+  @media (min-width: 768px) { .intro { margin-bottom: 96px; } }
+  .intro.in-view { opacity: 1; transform: translateY(0); }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--slate-400);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .intro-heading {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    color: var(--slate-900);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .mobile-br { display: initial; }
+  @media (min-width: 480px) { .mobile-br { display: none; } }
+  .intro-heading .accent { color: var(--brand); }
+
+  .intro-sub {
+    margin-top: 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--slate-500);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) { .intro-sub { font-size: 17px; } }
+  .intro-sub .muted { color: var(--slate-400); }
+
+  /* ── Solution items ── */
+  .solutions { display: flex; flex-direction: column; gap: 112px; }
+  @media (min-width: 768px) { .solutions { gap: 160px; } }
+
+  .sol-item {
+    display: grid;
+    gap: 48px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
+  }
+  @media (min-width: 768px) { .sol-item { grid-template-columns: 5fr 7fr; gap: 64px; } }
+  .sol-item.in-view { opacity: 1; transform: translateY(0); }
+
+  .sol-text { display: flex; flex-direction: column; gap: 20px; }
+  @media (min-width: 768px) { .sol-text.order-2 { order: 2; } }
+
+  .sol-badge-row { display: flex; align-items: baseline; gap: 12px; }
+  .sol-num { font-size: 14px; font-weight: 800; color: var(--brand); font-variant-numeric: tabular-nums; }
+  .sol-badge { font-size: 11px; font-weight: 700; color: var(--slate-400); letter-spacing: 0.2em; text-transform: uppercase; }
+
+  .sol-heading {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    color: var(--slate-900);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .sol-heading .accent { color: var(--brand); }
+
+  .sol-desc {
+    font-size: 16px;
+    color: var(--slate-500);
+    line-height: 1.75;
+  }
+  @media (min-width: 768px) { .sol-desc { font-size: 17px; } }
+
+  .sol-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 20px;
+    border-top: 1px solid var(--slate-200);
+  }
+  .sol-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--slate-700);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .check-icon {
+    width: 17px;
+    height: 17px;
+    color: var(--brand);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── sol-visual ── */
+  .sol-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (min-width: 768px) { .sol-visual.order-1 { order: 1; } }
+
+  /* ── PhoneMockup ── */
+  /*
+   * 라이브: wrapper w-[180px] h-[360px] → sm:w-[240px] sm:h-[480px] → lg:w-[260px] lg:h-[520px]
+   *         canvas w-[260px] h-[520px], scale-[0.692] → sm:scale-[0.923] → lg:scale-100
+   * 정적: CSS 변수로 스케일 구현 (모바일 0.692 → 태블릿 0.923 → 데스크톱 1.0)
+   */
+  .phone-outer {
+    width: 140px;
+    height: 280px;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+  @media (min-width: 380px) {
+    .phone-outer { width: 160px; height: 320px; }
+  }
+  @media (min-width: 480px) {
+    .phone-outer { width: 180px; height: 360px; }
+  }
+  @media (min-width: 768px) {
+    .phone-outer { width: 260px; height: 520px; }
+  }
+
+  .phone-canvas-wrap {
+    width: 260px;
+    height: 520px;
+    transform-origin: top left;
+    transform: scale(0.538);
+  }
+  @media (min-width: 380px) {
+    .phone-canvas-wrap { transform: scale(0.615); }
+  }
+  @media (min-width: 480px) {
+    .phone-canvas-wrap { transform: scale(0.692); }
+  }
+  @media (min-width: 768px) {
+    .phone-canvas-wrap { transform: scale(1.0); }
+  }
+
+  .phone-frame {
+    width: 260px;
+    height: 520px;
+    background: #E2E8F0;
+    border-radius: 36px;
+    padding: 8px;
+    box-shadow: 0 8px 24px -4px rgba(0,0,0,0.12);
+  }
+
+  .phone-screen {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── DualPhone container ── */
+  .dual-phone {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .dual-phone { gap: 20px; }
+  }
+
+  /* sub phone overlaps main on mobile */
+  .dual-phone .phone-outer:nth-child(2) {
+    margin-left: -32px;
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(-6px 4px 16px rgba(0,0,0,0.18));
+  }
+  @media (min-width: 480px) {
+    .dual-phone .phone-outer:nth-child(2) {
+      margin-left: -50px;
+    }
+  }
+  @media (min-width: 768px) {
+    .dual-phone .phone-outer:nth-child(2) {
+      margin-left: 0;
+    }
+  }
+
+  /* ── MenuListScreen ── */
+  .mls-wrap {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    height: 100%;
+  }
+  .mls-store-info {
+    padding: 20px 16px 12px;
+  }
+  .mls-store-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .mls-store-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.2;
+  }
+  .mls-table-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1A5DF7;
+    background: #EFF6FF;
+    padding: 2px 6px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .mls-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #64748B;
+    font-weight: 500;
+  }
+  .mls-star { color: #FFB800; }
+  .mls-rating-num { font-weight: 700; color: #0F172A; }
+  .mls-divider { color: #E2E8F0; }
+
+  .mls-tabs {
+    display: flex;
+    gap: 6px;
+    padding: 0 16px 16px;
+    overflow: hidden;
+  }
+  .mls-tab {
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .mls-tab-active { background: #0F172A; color: white; }
+  .mls-tab-inactive { background: #F8FAFC; color: #64748B; }
+
+  .mls-items {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .mls-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .mls-img-wrap {
+    width: 68px;
+    height: 68px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #F1F5F9;
+    flex-shrink: 0;
+  }
+  .mls-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mls-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mls-item-info { flex: 1; min-width: 0; }
+  .mls-item-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+  .badge-best { background: #EFF6FF; color: #1A5DF7; }
+  .badge-signature { background: #0F172A; color: white; }
+  .badge-new { background: #ECFDF5; color: #059669; }
+  .mls-item-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0F172A;
+    display: block;
+    line-height: 1.3;
+  }
+  .mls-price-row {
+    margin-top: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .mls-price-original {
+    font-size: 10px;
+    color: #94A3B8;
+    text-decoration: line-through;
+    font-variant-numeric: tabular-nums;
+  }
+  .mls-price {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0F172A;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mls-cart {
+    margin-top: auto;
+    padding: 20px 12px 12px;
+  }
+  .mls-cart-btn {
+    height: 44px;
+    background: #1A5DF7;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(26,93,247,0.3);
+  }
+  .mls-cart-btn span {
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ── MenuDetailScreen ── */
+  .mds-wrap {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    height: 100%;
+  }
+  .mds-hero {
+    position: relative;
+    height: 148px;
+    background: #F1F5F9;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .mds-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mds-back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .mds-info {
+    padding: 16px 16px 12px;
+  }
+  .mds-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.3;
+  }
+  .mds-desc {
+    font-size: 11px;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+  .mds-qty-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mds-qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mds-qty-btn-minus {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: #F1F5F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mds-qty-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0F172A;
+    font-variant-numeric: tabular-nums;
+    width: 12px;
+    text-align: center;
+  }
+  .mds-qty-btn-plus {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: #0F172A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mds-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0F172A;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mds-option {
+    padding: 12px 16px;
+    border-top: 1px solid #F1F5F9;
+  }
+  .mds-option-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .mds-option-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #0F172A;
+  }
+  .mds-option-req {
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+    background: #1A5DF7;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .mds-option-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+  }
+  .mds-radio {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid #CBD5E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .mds-radio-selected { border-color: #1A5DF7; }
+  .mds-radio-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1A5DF7;
+  }
+  .mds-option-label {
+    flex: 1;
+    font-size: 11px;
+    color: #475569;
+  }
+  .mds-option-label-selected {
+    color: #0F172A;
+    font-weight: 600;
+  }
+  .mds-option-price {
+    font-size: 10px;
+    color: #94A3B8;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mds-add-btn-wrap {
+    margin-top: auto;
+    padding: 8px 12px 12px;
+  }
+  .mds-add-btn {
+    width: 100%;
+    height: 44px;
+    background: #1A5DF7;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(26,93,247,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+
+  /* ── OrderCompleteScreen ── */
+  .ocs-wrap {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    height: 100%;
+  }
+  .ocs-header {
+    padding: 24px 16px 16px;
+    text-align: center;
+  }
+  .ocs-check-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ECFDF5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+  }
+  .ocs-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0F172A;
+  }
+  .ocs-subtitle {
+    font-size: 11px;
+    color: #94A3B8;
+    margin-top: 4px;
+  }
+
+  .ocs-order-card {
+    margin: 0 16px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #F8FAFC;
+    border: 1px solid #F1F5F9;
+  }
+  .ocs-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+  }
+  .ocs-row-key {
+    font-size: 10px;
+    color: #94A3B8;
+  }
+  .ocs-row-val {
+    font-size: 11px;
+    font-weight: 600;
+    color: #0F172A;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ocs-items {
+    padding: 16px 16px 0;
+  }
+  .ocs-items-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94A3B8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .ocs-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #F1F5F9;
+  }
+  .ocs-item-row:last-child { border-bottom: none; }
+  .ocs-item-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0F172A;
+  }
+  .ocs-item-qty {
+    font-size: 10px;
+    color: #64748B;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ocs-total {
+    margin: 8px 16px 0;
+    padding: 12px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-top: 2px solid #0F172A;
+  }
+  .ocs-total-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #0F172A;
+  }
+  .ocs-total-val {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0F172A;
+    font-variant-numeric: tabular-nums;
+  }
+  .ocs-total-unit {
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    margin-left: 2px;
+  }
+
+  .ocs-btn-wrap {
+    margin-top: auto;
+    padding: 8px 12px 12px;
+  }
+  .ocs-btn {
+    width: 100%;
+    height: 44px;
+    background: #1A5DF7;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(26,93,247,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+
+  /* ── DashboardDesktop ── */
+  .dash-wrap { width: 100%; }
+  .dash-browser {
+    background: #E2E8F0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px -4px rgba(0,0,0,0.12);
+  }
+  .dash-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #F1F5F9;
+  }
+  .dash-dots { display: flex; gap: 6px; }
+  .dash-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dash-dot-red { background: #FD5F57; }
+  .dash-dot-yellow { background: #FDBB2E; }
+  .dash-dot-green { background: #27C840; }
+  .dash-urlbar {
+    flex: 1;
+    margin: 0 24px;
+    background: white;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 10px;
+    color: #94A3B8;
+    text-align: center;
+  }
+
+  .dash-app {
+    background: #FAFBFC;
+    display: flex;
+    min-height: 320px;
+  }
+  .dash-sidebar {
+    width: 48px;
+    background: white;
+    border-right: 1px solid #F1F5F9;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .dash-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: #1A5DF7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+  .dash-logo span {
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+  }
+  .dash-nav-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dash-nav-icon-active { background: #EFF6FF; color: #1A5DF7; }
+  .dash-nav-icon-inactive { color: #94A3B8; }
+
+  .dash-main {
+    flex: 1;
+    padding: 16px;
+    min-width: 0;
+  }
+  .dash-main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .dash-main-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0F172A;
+  }
+  .dash-main-sub {
+    font-size: 10px;
+    color: #94A3B8;
+  }
+  .dash-actions { display: flex; gap: 6px; }
+  .dash-btn-outline {
+    height: 24px;
+    padding: 0 10px;
+    background: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    font-size: 9px;
+    color: #64748B;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .dash-btn-primary {
+    height: 24px;
+    padding: 0 10px;
+    background: #1A5DF7;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    font-size: 9px;
+    color: white;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .dash-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .dash-stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #F1F5F9;
+  }
+  .dash-stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .dash-stat-label {
+    font-size: 9px;
+    color: #94A3B8;
+  }
+  .dash-stat-icon { font-size: 10px; }
+  .dash-stat-val {
+    font-size: 15px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    display: block;
+  }
+  .stat-blue { color: #1A5DF7; }
+  .stat-green { color: #059669; }
+  .stat-red { color: #EF4444; }
+  .dash-stat-sub {
+    font-size: 8px;
+    color: #94A3B8;
+  }
+
+  .dash-order-table {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #F1F5F9;
+    overflow: hidden;
+  }
+  .dash-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid #F1F5F9;
+  }
+  .dash-table-count {
+    font-size: 10px;
+    color: #64748B;
+  }
+  .dash-table-count strong { font-weight: 700; color: #0F172A; }
+  .dash-table-more {
+    font-size: 9px;
+    color: #1A5DF7;
+    font-weight: 600;
+  }
+
+  .dash-table { width: 100%; border-collapse: collapse; }
+  .dash-table thead tr { border-bottom: 1px solid #F1F5F9; }
+  .dash-table th {
+    text-align: left;
+    font-size: 8px;
+    font-weight: 600;
+    color: #94A3B8;
+    padding: 6px 12px;
+  }
+  .dash-table tbody tr { border-bottom: 1px solid #F8FAFC; }
+  .dash-table tbody tr:last-child { border-bottom: none; }
+  .dash-table td { padding: 8px 12px; }
+  .dash-td-id { font-size: 9px; color: #1A5DF7; font-weight: 500; }
+  .dash-td-table { font-size: 9px; font-weight: 700; color: #0F172A; }
+  .dash-td-menu { font-size: 9px; color: #475569; }
+  .dash-td-price { font-size: 9px; font-weight: 600; color: #0F172A; font-variant-numeric: tabular-nums; }
+  .dash-status-badge {
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 9999px;
+  }
+  .status-pending { background: #FFF7ED; color: #EA580C; }
+  .status-cooking { background: #EFF6FF; color: #1A5DF7; }
+  .status-done { background: #ECFDF5; color: #059669; }
+
+  /* ── menu image placeholder (food photos not available) ── */
+  .food-img-tenderloin {
+    background: linear-gradient(135deg, #c8a882 0%, #a0723e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+  .food-img-tartare {
+    background: linear-gradient(135deg, #d4604a 0%, #b83020 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .intro, .sol-item { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="section" id="solution">
+  <div class="container">
+
+    <div class="intro" id="sol-intro">
+      <p class="eyebrow">The Solution</p>
+      <h2 class="intro-heading"><span class="accent">도입비용 0원,<br>월 고정비 0원.</span></h2>
+      <p class="intro-sub">
+        외국인 손님 메뉴부터 결제까지 필요한 모든 것이 한&nbsp;번에.<br>
+        <span class="muted">*주문이 있을 때만 수수료가 발생합니다.</span>
+      </p>
+    </div>
+
+    <div class="solutions">
+
+      <!-- 01 Multi-language — DualPhone: MenuListScreen(en) + MenuDetailScreen(en) -->
+      <div class="sol-item" id="sol-1">
+        <div class="sol-text">
+          <div class="sol-badge-row">
+            <span class="sol-num">01</span>
+            <span class="sol-badge">Multi-language</span>
+          </div>
+          <h3 class="sol-heading">한국어로 한&nbsp;번 등록하면 <span class="accent">32개국어</span>로 자동 번역</h3>
+          <p class="sol-desc">영어·중국어·일본어·베트남어·태국어·러시아어·인도네시아어·스페인어·프랑스어·독일어·아랍어 등. 메뉴명·설명·옵션·원산지·리뷰까지 번역되고, 손님은 자기 나라 언어로만 보면 됩니다.</p>
+          <ul class="sol-features">
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              한국어 등록 = 32개국 메뉴 완성
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              사진·가격·옵션·원산지 자동 번역
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              외국인 리뷰도 한국어로 자동 번역
+            </li>
+          </ul>
+        </div>
+
+        <!-- DualPhone: MenuListScreen(en) + MenuDetailScreen(en) -->
+        <div class="sol-visual">
+          <div class="dual-phone" aria-label="다국어 메뉴 화면 예시">
+
+            <!-- Main: MenuListScreen lang=en -->
+            <div class="phone-outer">
+              <div class="phone-canvas-wrap">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <div class="mls-wrap">
+                      <div class="mls-store-info">
+                        <div class="mls-store-top">
+                          <span class="mls-store-name">The Timber House</span>
+                          <span class="mls-table-badge">T17</span>
+                        </div>
+                        <div class="mls-rating-row">
+                          <span class="mls-star">★</span>
+                          <span class="mls-rating-num">4.97</span>
+                          <span class="mls-divider">·</span>
+                          <span>30 min wait</span>
+                        </div>
+                      </div>
+                      <div class="mls-tabs">
+                        <span class="mls-tab mls-tab-active">Best</span>
+                        <span class="mls-tab mls-tab-inactive">Main</span>
+                        <span class="mls-tab mls-tab-inactive">Side</span>
+                        <span class="mls-tab mls-tab-inactive">Drinks</span>
+                      </div>
+                      <div class="mls-items">
+                        <!-- item 1 -->
+                        <div class="mls-item">
+                          <div class="mls-img-wrap">
+                            <img src="https://zivo-qrlanding.netlify.app/menu/menu-tenderloin.png" alt="Hanwoo Tenderloin" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                          </div>
+                          <div class="mls-item-info">
+                            <span class="mls-item-badge badge-best">Best</span>
+                            <span class="mls-item-name">Hanwoo Tenderloin</span>
+                            <div class="mls-price-row">
+                              <span class="mls-price-original">₩200,000</span>
+                              <span class="mls-price">₩180,000</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- item 2 -->
+                        <div class="mls-item">
+                          <div class="mls-img-wrap">
+                            <img src="https://zivo-qrlanding.netlify.app/menu/menu-tartare.png" alt="Beef Tartare" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                          </div>
+                          <div class="mls-item-info">
+                            <span class="mls-item-badge badge-new">New</span>
+                            <span class="mls-item-name">Beef Tartare</span>
+                            <div class="mls-price-row">
+                              <span class="mls-price">₩45,000</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mls-cart">
+                        <div class="mls-cart-btn">
+                          <span>Cart · ₩225,000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub: MenuDetailScreen lang=en -->
+            <div class="phone-outer">
+              <div class="phone-canvas-wrap">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <div class="mds-wrap">
+                      <div class="mds-hero">
+                        <img src="https://zivo-qrlanding.netlify.app/menu/menu-tenderloin.png" alt="Hanwoo Tenderloin" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                        <div class="mds-back-btn" aria-hidden="true">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="mds-info">
+                        <h2 class="mds-name">1++ Hanwoo Tenderloin</h2>
+                        <p class="mds-desc">3cm signature cut · served with lemon</p>
+                        <div class="mds-qty-row">
+                          <div class="mds-qty-controls">
+                            <div class="mds-qty-btn-minus">
+                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5"><path d="M5 12h14"/></svg>
+                            </div>
+                            <span class="mds-qty-num">1</span>
+                            <div class="mds-qty-btn-plus">
+                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                            </div>
+                          </div>
+                          <span class="mds-price">₩180,000</span>
+                        </div>
+                      </div>
+                      <div class="mds-option">
+                        <div class="mds-option-header">
+                          <span class="mds-option-title">Weight</span>
+                          <span class="mds-option-req">Required</span>
+                        </div>
+                        <div class="mds-option-row">
+                          <div class="mds-radio mds-radio-selected"><div class="mds-radio-dot"></div></div>
+                          <span class="mds-option-label mds-option-label-selected">300g</span>
+                          <span class="mds-option-price">Default</span>
+                        </div>
+                        <div class="mds-option-row">
+                          <div class="mds-radio"></div>
+                          <span class="mds-option-label">400g</span>
+                          <span class="mds-option-price">+₩15,000</span>
+                        </div>
+                        <div class="mds-option-row">
+                          <div class="mds-radio"></div>
+                          <span class="mds-option-label">500g</span>
+                          <span class="mds-option-price">+₩25,000</span>
+                        </div>
+                      </div>
+                      <div class="mds-add-btn-wrap">
+                        <button class="mds-add-btn">Add to cart · ₩180,000</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 QR Ordering — DualPhone: MenuListScreen(ko) + OrderCompleteScreen -->
+      <div class="sol-item" id="sol-2">
+        <div class="sol-text order-2">
+          <div class="sol-badge-row">
+            <span class="sol-num">02</span>
+            <span class="sol-badge">QR Ordering</span>
+          </div>
+          <h3 class="sol-heading">QR 스캔부터 주문 완료까지 <span class="accent">1분</span></h3>
+          <p class="sol-desc">앱 설치 후 회원가입만 한 번. 그 뒤로는 테이블 QR만 스캔하면 메뉴 → 옵션 → 직원 호출 → 결제 → 영수증까지 손님이 혼자 끝냅니다.</p>
+          <ul class="sol-features">
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              앱 설치 + 회원가입 1회로 결제 정보 등록
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              테이블 번호 자동 인식 · 직원 호출
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              옵션(중량·가니쉬)·요청사항 지원
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              주문번호·영수증 자동 발급
+            </li>
+          </ul>
+        </div>
+
+        <!-- DualPhone: MenuListScreen(ko) + OrderCompleteScreen -->
+        <div class="sol-visual order-1">
+          <div class="dual-phone" aria-label="QR 주문 화면 예시">
+
+            <!-- Main: MenuListScreen lang=ko -->
+            <div class="phone-outer">
+              <div class="phone-canvas-wrap">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <div class="mls-wrap">
+                      <div class="mls-store-info">
+                        <div class="mls-store-top">
+                          <span class="mls-store-name">The Timber House</span>
+                          <span class="mls-table-badge">T17</span>
+                        </div>
+                        <div class="mls-rating-row">
+                          <span class="mls-star">★</span>
+                          <span class="mls-rating-num">4.97</span>
+                          <span class="mls-divider">·</span>
+                          <span>대기 30분</span>
+                        </div>
+                      </div>
+                      <div class="mls-tabs">
+                        <span class="mls-tab mls-tab-active">추천</span>
+                        <span class="mls-tab mls-tab-inactive">메인</span>
+                        <span class="mls-tab mls-tab-inactive">사이드</span>
+                        <span class="mls-tab mls-tab-inactive">음료</span>
+                      </div>
+                      <div class="mls-items">
+                        <!-- item 1 -->
+                        <div class="mls-item">
+                          <div class="mls-img-wrap">
+                            <img src="https://zivo-qrlanding.netlify.app/menu/menu-tenderloin.png" alt="Hanwoo Tenderloin" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                          </div>
+                          <div class="mls-item-info">
+                            <span class="mls-item-badge badge-best">추천</span>
+                            <span class="mls-item-name">1++ 한우 안심 스테이크</span>
+                            <div class="mls-price-row">
+                              <span class="mls-price-original">200,000원</span>
+                              <span class="mls-price">180,000원</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- item 2 -->
+                        <div class="mls-item">
+                          <div class="mls-img-wrap">
+                            <img src="https://zivo-qrlanding.netlify.app/menu/menu-tartare.png" alt="Beef Tartare" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                          </div>
+                          <div class="mls-item-info">
+                            <span class="mls-item-badge badge-new">신규</span>
+                            <span class="mls-item-name">한우 육회</span>
+                            <div class="mls-price-row">
+                              <span class="mls-price">45,000원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mls-cart">
+                        <div class="mls-cart-btn">
+                          <span>장바구니 · 225,000원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub: OrderCompleteScreen -->
+            <div class="phone-outer">
+              <div class="phone-canvas-wrap">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <div class="ocs-wrap">
+                      <div class="ocs-header">
+                        <div class="ocs-check-circle">
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M5 13l4 4L19 7" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div class="ocs-title">주문 완료</div>
+                        <div class="ocs-subtitle">주문이 정상 접수되었습니다</div>
+                      </div>
+                      <div class="ocs-order-card">
+                        <div class="ocs-row">
+                          <span class="ocs-row-key">주문 번호</span>
+                          <span class="ocs-row-val">#0001</span>
+                        </div>
+                        <div class="ocs-row">
+                          <span class="ocs-row-key">테이블</span>
+                          <span class="ocs-row-val">17번</span>
+                        </div>
+                        <div class="ocs-row">
+                          <span class="ocs-row-key">주문 시간</span>
+                          <span class="ocs-row-val">17:54</span>
+                        </div>
+                      </div>
+                      <div class="ocs-items">
+                        <div class="ocs-items-label">주문 내역</div>
+                        <div class="ocs-item-row">
+                          <span class="ocs-item-name">1++ 한우 안심 스테이크</span>
+                          <span class="ocs-item-qty">1개</span>
+                        </div>
+                        <div class="ocs-item-row">
+                          <span class="ocs-item-name">한우 육회</span>
+                          <span class="ocs-item-qty">1개</span>
+                        </div>
+                      </div>
+                      <div class="ocs-total">
+                        <span class="ocs-total-label">결제 금액</span>
+                        <span class="ocs-total-val">225,000<span class="ocs-total-unit">원</span></span>
+                      </div>
+                      <div class="ocs-btn-wrap">
+                        <button class="ocs-btn">추가 주문하기</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Partner Dashboard — DashboardDesktop (solo) -->
+      <div class="sol-item" id="sol-3">
+        <div class="sol-text">
+          <div class="sol-badge-row">
+            <span class="sol-num">03</span>
+            <span class="sol-badge">Partner Dashboard</span>
+          </div>
+          <h3 class="sol-heading">주문·메뉴·정산·테이블을 <span class="accent">한&nbsp;화면</span>에서</h3>
+          <p class="sol-desc">매장/메뉴/주문/결제·정산/테이블/리뷰 — 7개 어드민 화면이 한 계정으로 연결됩니다. 사장님 전용 PC/태블릿 대시보드로 운영이 한눈에 정리됩니다.</p>
+          <ul class="sol-features">
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              실시간 주문 알림 · 상태(접수대기·조리중·완료)
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              메뉴·가격·품절 즉시 반영 (32개국어 동시)
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              테이블별 주문·매출 조회
+            </li>
+            <li class="sol-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              일·월 정산 리포트 · 인기 메뉴 분석
+            </li>
+          </ul>
+        </div>
+
+        <!-- DashboardDesktop -->
+        <div class="sol-visual">
+          <div class="dash-wrap" aria-label="파트너 대시보드 화면 예시">
+            <div class="dash-browser">
+              <!-- Title Bar -->
+              <div class="dash-titlebar">
+                <div class="dash-dots">
+                  <div class="dash-dot dash-dot-red"></div>
+                  <div class="dash-dot dash-dot-yellow"></div>
+                  <div class="dash-dot dash-dot-green"></div>
+                </div>
+                <div class="dash-urlbar">admin.zivoqr.com/dashboard</div>
+              </div>
+
+              <!-- App -->
+              <div class="dash-app">
+                <!-- Sidebar -->
+                <div class="dash-sidebar">
+                  <div class="dash-logo"><span>Z</span></div>
+                  <!-- Home (active) -->
+                  <div class="dash-nav-icon dash-nav-icon-active">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                  <!-- Menu -->
+                  <div class="dash-nav-icon dash-nav-icon-inactive">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M9 5H2v14h20V5h-7M12 3v18"/>
+                    </svg>
+                  </div>
+                  <!-- File -->
+                  <div class="dash-nav-icon dash-nav-icon-inactive">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                    </svg>
+                  </div>
+                  <!-- Chart -->
+                  <div class="dash-nav-icon dash-nav-icon-inactive">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M12 20V10M18 20V4M6 20v-4"/>
+                    </svg>
+                  </div>
+                  <!-- User -->
+                  <div class="dash-nav-icon dash-nav-icon-inactive">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="dash-main">
+                  <!-- Header -->
+                  <div class="dash-main-header">
+                    <div>
+                      <div class="dash-main-title">대시보드</div>
+                      <div class="dash-main-sub">The Timber House · 오늘</div>
+                    </div>
+                    <div class="dash-actions">
+                      <div class="dash-btn-outline">내보내기</div>
+                      <div class="dash-btn-primary">+ 메뉴 추가</div>
+                    </div>
+                  </div>
+
+                  <!-- Stat Cards -->
+                  <div class="dash-stat-grid">
+                    <div class="dash-stat-card">
+                      <div class="dash-stat-top">
+                        <span class="dash-stat-label">오늘 주문 수</span>
+                        <span class="dash-stat-icon">🛒</span>
+                      </div>
+                      <span class="dash-stat-val stat-blue">47건</span>
+                      <span class="dash-stat-sub">전일 대비 +12%</span>
+                    </div>
+                    <div class="dash-stat-card">
+                      <div class="dash-stat-top">
+                        <span class="dash-stat-label">오늘 매출</span>
+                        <span class="dash-stat-icon">💰</span>
+                      </div>
+                      <span class="dash-stat-val stat-green">₩2.8M</span>
+                      <span class="dash-stat-sub">2,800,000원</span>
+                    </div>
+                    <div class="dash-stat-card">
+                      <div class="dash-stat-top">
+                        <span class="dash-stat-label">취소/환불</span>
+                        <span class="dash-stat-icon">↩️</span>
+                      </div>
+                      <span class="dash-stat-val stat-red">2건</span>
+                      <span class="dash-stat-sub">취소 1건 · 환불 1건</span>
+                    </div>
+                  </div>
+
+                  <!-- Order Table -->
+                  <div class="dash-order-table">
+                    <div class="dash-table-header">
+                      <span class="dash-table-count">최근 주문 <strong>10</strong>건</span>
+                      <span class="dash-table-more">전체 보기 →</span>
+                    </div>
+                    <table class="dash-table">
+                      <thead>
+                        <tr>
+                          <th>주문번호</th>
+                          <th>테이블</th>
+                          <th>메뉴</th>
+                          <th>금액</th>
+                          <th>상태</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="dash-td-id">0001</td>
+                          <td class="dash-td-table">T17</td>
+                          <td class="dash-td-menu">한우 안심 외 1건</td>
+                          <td class="dash-td-price">243,000원</td>
+                          <td><span class="dash-status-badge status-pending">접수대기</span></td>
+                        </tr>
+                        <tr>
+                          <td class="dash-td-id">0002</td>
+                          <td class="dash-td-table">T8</td>
+                          <td class="dash-td-menu">등심 스테이크 외 3건</td>
+                          <td class="dash-td-price">380,000원</td>
+                          <td><span class="dash-status-badge status-cooking">조리중</span></td>
+                        </tr>
+                        <tr>
+                          <td class="dash-td-id">0003</td>
+                          <td class="dash-td-table">T3</td>
+                          <td class="dash-td-menu">한우 코스 A</td>
+                          <td class="dash-td-price">380,000원</td>
+                          <td><span class="dash-status-badge status-done">완료</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.intro, .sol-item').forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  document.querySelectorAll('.intro, .sol-item').forEach(function (el) { io.observe(el); });
+  setTimeout(function () {
+    document.querySelectorAll('.intro, .sol-item').forEach(function (el) {
+      if (!el.classList.contains('in-view')) el.classList.add('in-view');
+    });
+  }, 900);
+})();
+</script>
+
+</body>
+</html>
+<!-- 권장 iframe 높이: 데스크톱 ~2400px / 모바일 ~3200px -->

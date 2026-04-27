@@ -9,3 +9,7 @@ dist
 .venv/
 __pycache__/
 scripts-assets/gen/
+
+# Local agent/caches
+.aing/
+captures/
