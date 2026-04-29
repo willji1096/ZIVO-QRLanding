@@ -23,7 +23,7 @@ export function Hero() {
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
 
   return (
-    <section ref={ref} className="relative min-h-[100vh] md:min-h-[92vh] overflow-hidden bg-[#0A0F1C]">
+    <section ref={ref} className="relative min-h-[100vh] md:min-h-[100vh] overflow-hidden bg-[#0A0F1C]">
       {/* 배경 이미지 풀블리드 + 파랄럭스 */}
       <motion.div
         aria-hidden
@@ -65,7 +65,7 @@ export function Hero() {
       />
 
       {/* 콘텐츠 */}
-      <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pt-28 pb-16 md:pt-36 md:pb-24 min-h-[100vh] md:min-h-[92vh] flex items-center">
+      <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pt-28 pb-16 md:pt-36 md:pb-24 min-h-[100vh] md:min-h-[100vh] flex items-center">
         <motion.div
           className="max-w-2xl"
           initial="hidden"

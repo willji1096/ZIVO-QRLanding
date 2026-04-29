@@ -44,7 +44,7 @@
     overflow: hidden;
     background: var(--ink);
   }
-  @media (min-width: 768px) { .hero { min-height: 92vh; } }
+  @media (min-width: 768px) { .hero { min-height: 100vh; } }
 
   /* Background image — no parallax */
   .hero-bg {
@@ -108,7 +108,7 @@
     align-items: center;
   }
   @media (min-width: 768px) {
-    .container { padding: 144px 48px 96px; min-height: 92vh; }
+    .container { padding: 144px 48px 96px; min-height: 100vh; }
   }
   @media (min-width: 768px) { .container { padding: 144px 48px 96px; } }
 
@@ -285,14 +285,14 @@
       </ul>
 
       <div class="actions">
-        <a href="javascript:void(0)" class="btn btn-primary" aria-hidden="true" tabindex="-1">
+        <a href="#" class="btn btn-primary" onclick="window.parent.postMessage('goCta','*');return false;">
           무료 도입 신청하기
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"/>
             <polyline points="12 5 19 12 12 19"/>
           </svg>
         </a>
-        <a href="#solution" target="_top" class="btn btn-secondary">
+        <a href="#" class="btn btn-secondary" onclick="window.parent.postMessage('goSolution','*');return false;">
           서비스 살펴보기
         </a>
       </div>

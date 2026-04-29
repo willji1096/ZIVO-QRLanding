@@ -23,7 +23,7 @@ const QR_PATTERN = [
 function QRCode({ color = '#0F172A', bg = '#ffffff' }: { color?: string; bg?: string }) {
   return (
     <div
-      className="w-full aspect-square rounded-[10px] p-[9px]"
+      className="aspect-square h-full max-w-full rounded-[10px] p-[9px]"
       style={{ backgroundColor: bg }}
     >
       <div className="w-full h-full grid grid-cols-9 grid-rows-9 gap-[2px]">
@@ -79,21 +79,21 @@ function QRCard({
       <img
         src={logoSrc}
         alt="zivo"
-        className="relative h-[32px] w-auto"
+        className="relative h-[44px] w-auto"
         draggable={false}
       />
 
       <span
-        className={`relative mt-3.5 text-[17px] font-extrabold tracking-[0.18em] uppercase ${subTextColor}`}
+        className={`relative mt-3.5 text-[22px] font-extrabold tracking-[0.10em] uppercase whitespace-nowrap ${subTextColor}`}
       >
         Scan to Order
       </span>
 
-      <div className="relative w-full flex-1 flex items-center justify-center mt-4">
+      <div className="relative w-full flex-1 min-h-0 flex items-center justify-center mt-4">
         <QRCode color={qrColor} bg={qrBg} />
       </div>
 
-      <span className={`relative mt-4 text-[17px] font-extrabold tracking-[0.02em] ${bottomTextColor}`}>
+      <span className={`relative mt-4 text-[20px] font-extrabold tracking-[0.02em] ${bottomTextColor}`}>
         외국인 전용
       </span>
     </div>

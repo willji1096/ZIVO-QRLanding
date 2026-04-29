@@ -227,21 +227,20 @@
     align-items: center;
     overflow: hidden;
   }
-  .qr-card .qr-logo {
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 1px;
+  .qr-card .qr-logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
   }
   .qr-card .qr-sub {
     margin-top: 14px;
-    font-size: 13px;
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
+    white-space: nowrap;
   }
   .qr-card .qr-code {
     flex: 1;
@@ -253,7 +252,7 @@
   }
   .qr-card .qr-bottom {
     margin-top: 16px;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 800;
     letter-spacing: 0.02em;
   }
@@ -476,7 +475,7 @@
     </div>
 
     <div class="cta-btn-wrap" id="hiw-cta">
-      <a href="javascript:void(0)" class="btn-primary" aria-hidden="true" tabindex="-1">
+      <a href="#" class="btn-primary" onclick="window.parent.postMessage('goCta','*');return false;">
         지금 바로 신청하기
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="5" y1="12" x2="19" y2="12"/>
@@ -495,7 +494,7 @@
           <div class="qr-card-inner">
             <div class="qr-card back">
               <div class="qr-card-highlight"></div>
-              <span class="qr-logo"><span>z</span><span>i</span><span class="yellow">v</span><span>o</span></span>
+              <img class="qr-logo-img" src="https://zivo-qrlanding.netlify.app/logo/zivo-logo-white.svg" alt="zivo" draggable="false" />
               <span class="qr-sub">Scan to Order</span>
               <div class="qr-code">
                 <div class="qr-code-inner" style="background:#FFFFFF;"></div>
@@ -510,7 +509,7 @@
           <div class="qr-card-inner">
             <div class="qr-card middle">
               <div class="qr-card-highlight"></div>
-              <span class="qr-logo"><span class="blue">z</span><span class="blue">i</span><span class="yellow">v</span><span class="blue">o</span></span>
+              <img class="qr-logo-img" src="https://zivo-qrlanding.netlify.app/logo/zivo-logo-dark.svg" alt="zivo" draggable="false" />
               <span class="qr-sub">Scan to Order</span>
               <div class="qr-code">
                 <div class="qr-code-inner" style="background:#FFFFFF;"></div>
@@ -525,7 +524,7 @@
           <div class="qr-card-inner">
             <div class="qr-card front">
               <div class="qr-card-highlight"></div>
-              <span class="qr-logo"><span>z</span><span>i</span><span class="yellow">v</span><span>o</span></span>
+              <img class="qr-logo-img" src="https://zivo-qrlanding.netlify.app/logo/zivo-logo-white.svg" alt="zivo" draggable="false" />
               <span class="qr-sub">Scan to Order</span>
               <div class="qr-code">
                 <div class="qr-code-inner" style="background:#FFFFFF;"></div>

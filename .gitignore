@@ -13,3 +13,7 @@ scripts-assets/gen/
 # Local agent/caches
 .aing/
 captures/
+.gstack/
+
+# Local Netlify folder
+.netlify
