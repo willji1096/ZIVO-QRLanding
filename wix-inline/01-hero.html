@@ -115,6 +115,7 @@
   .content {
     max-width: 672px;
   }
+  @media (min-width: 768px) { .content { max-width: 768px; } }
 
   .content > * {
     opacity: 0;
@@ -134,15 +135,18 @@
 
   /* Headline */
   h1 {
-    font-size: clamp(40px, 6vw, 80px);
+    font-size: clamp(30px, 4.6vw, 58px);
     font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -0.028em;
+    line-height: 1.14;
+    letter-spacing: -0.025em;
     color: #fff;
     margin-bottom: 24px;
     text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    word-break: keep-all;
   }
   h1 .accent { color: var(--accent-blue); }
+  h1 .br-md { display: none; }
+  @media (min-width: 768px) { h1 .br-md { display: block; } }
 
   /* Checklist */
   .checklist {
@@ -254,7 +258,8 @@
     <div class="content">
       <h1>
         외국인 관광객 1,800만 시대,<br>
-        <span class="accent">한국 관광은 지금이 시작입니다.</span>
+        <span class="accent">ZIVO Order</span> 하나면<br class="br-md">
+        외국인이 알아서 우리 매장으로 찾아옵니다.
       </h1>
 
       <ul class="checklist">

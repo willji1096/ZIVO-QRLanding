@@ -67,7 +67,7 @@ export function Hero() {
       {/* 콘텐츠 */}
       <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pt-28 pb-16 md:pt-36 md:pb-24 min-h-[100vh] md:min-h-[100vh] flex items-center">
         <motion.div
-          className="max-w-2xl"
+          className="max-w-2xl md:max-w-3xl"
           initial="hidden"
           animate="visible"
           variants={stagger}
@@ -75,11 +75,14 @@ export function Hero() {
           {/* 헤드라인 */}
           <motion.h1
             variants={fadeUp}
-            className="text-[40px] sm:text-[56px] md:text-[68px] lg:text-[80px] font-extrabold text-white leading-[1.08] tracking-[-0.028em] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.35)]"
+            className="text-[30px] sm:text-[40px] md:text-[48px] lg:text-[58px] font-extrabold text-white leading-[1.14] tracking-[-0.025em] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.35)]"
+            style={{ wordBreak: 'keep-all' }}
           >
             외국인 관광객 1,800만 시대,
             <br />
-            <span className="text-[#7FB3FF]">한국 관광은 지금이 시작입니다.</span>
+            <span className="text-[#7FB3FF]">ZIVO Order</span> 하나면{' '}
+            <br className="hidden md:block" />
+            외국인이 알아서 우리 매장으로 찾아옵니다.
           </motion.h1>
 
           <motion.ul variants={fadeUp} className="flex flex-wrap gap-x-5 gap-y-2 mt-8 mb-9">
